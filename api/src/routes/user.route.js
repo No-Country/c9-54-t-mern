@@ -1,9 +1,10 @@
 import express from "express";
-import { getUser } from "../controllers/user.controller.js";
+import { getUsers, getUser } from "../controllers/user.controller.js";
 
 const router = express.Router();
 
 //GET ALL User
-router.get("/", getUser);
+router.get("/", getUsers);
+router.get("/:id", getUser);
 
 export default router;
