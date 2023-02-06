@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "",
-    "start": "node ./src/server",
-    "dev": "nodemon ./src/server"
+    "start": "nodemon ./src/server.js"
   },
   "keywords": [
     "clon Airbnb",
