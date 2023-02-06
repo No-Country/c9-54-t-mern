@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "es una app de alquileres inmobiliarios",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "",
     "start": "node ./src/server",
