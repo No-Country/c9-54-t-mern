@@ -33,3 +33,13 @@ export const updateUser = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+export const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.deleteOne({ _id: id });
+    res.status(204).json(user);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
