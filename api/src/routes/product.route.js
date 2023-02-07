@@ -6,19 +6,13 @@ import {
   getAllProducts,
   updateProduct,
 } from "../controllers/product.controller.js";
-import Product from "../models/product.model.js";
 
 const router = express.Router();
 
-//GET ALL Products
 router.get("/", getAllProducts);
-//CREATE
 router.post("/", createProduct);
-// GET ProductById
-router.get("/:id", getProductById)
-//Update Products
+router.get("/:id", getProductById);
 router.patch("/:id", updateProduct);
-//Delete Products
 router.delete("/:id", deleteProduct);
 
 export default router;

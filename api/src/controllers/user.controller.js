@@ -14,7 +14,7 @@ export const getUser = async (req, res) => {
   try {
     const user = await User.findOne({ _id: id });
     user === null
-      ? res.status(404).json({ message: "Invalid ID" })
+      ? res.status(404).json({ message: "The user does not exist" })
       : res.status(200).json(user);
   } catch (error) {
     res.status(400).json({ message: error.message });
