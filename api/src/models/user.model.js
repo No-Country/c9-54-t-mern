@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
     require: true,
     unique: true,
   },
-  emai: {
+  email: {
     type: String,
     require: true,
     unique: true,
@@ -32,7 +32,6 @@ const UserSchema = new mongoose.Schema({
   },
   age: {
     type: Number,
-    require: true,
   },
   isAdmin: {
     type: Boolean,

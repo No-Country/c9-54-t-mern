@@ -15,7 +15,8 @@
   "author": "Front End: Victor Fernandez / Front End: Eitan / Front End: Luciana Rabozzi / Front End: Jorge Espinoza / Back End: Horacio Abitu / Back End: Luis Alomia / Back End: Anmy Moreno",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "5.1.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "2.8.5",
     "dotenv": "16.0.3",
     "express": "4.18.2",
