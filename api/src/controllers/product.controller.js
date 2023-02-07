@@ -6,7 +6,7 @@ export const getAllProducts = async (req, res) => {
       const products = await Product.find();
       res.status(200).json(products);
     } catch (error) {
-        console.log("Products Not Found !!");
+      return res.status(400).json({ message: error.message });;
     }
   };
 
@@ -17,7 +17,7 @@ export const getAllProducts = async (req, res) => {
       const savedProduct = await newProduct.save();
       res.status(200).json(savedProduct);
     } catch (error) {
-      console.log(error);
+      return res.status(500).json({ message: error.message });
     }
   };  
 /// Find Product By Id
