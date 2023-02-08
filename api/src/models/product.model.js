@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
-const { Schema } = mongoose;
 
-const ProductSchema = new mongoose.Schema(
-  {
+const ProductSchema = new mongoose.Schema({
   title: {
     type: String,
     require: true,
@@ -20,7 +18,7 @@ const ProductSchema = new mongoose.Schema(
     require: true,
   },
   image: {
-    type: [{type: String, required: true}],
+    type: [{ type: String, required: true }],
   },
   unAvailable: {
     type: [{ booking: Number, initial: Date, exit: Date }],
@@ -59,7 +57,6 @@ const ProductSchema = new mongoose.Schema(
     type: Boolean,
     default: false,
   },
-}
-);
+});
 
-export default mongoose.model("Product", ProductSchema)
+export default mongoose.model("Product", ProductSchema);
