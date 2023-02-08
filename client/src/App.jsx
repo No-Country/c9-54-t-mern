@@ -1,11 +1,12 @@
 import "./App.css";
+import FilterBar from "./components/filterBar/filterBar";
 import Landing from "./components/landing/Landing";
 
 function App() {
   return (
     <>
       <Landing />
-      {/* <div className="btn"> hola tailwind</div> */}
+      <FilterBar/>
     </>
   );
 }
