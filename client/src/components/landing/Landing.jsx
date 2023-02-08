@@ -13,7 +13,7 @@ const Landing = () => {
           <h4 className="text-3xl cursor-default font-bold">
             <span>
               Tu
-              <span className="text-violet-800 text-6xl ">Destino</span> app.
+              <span className="text-[#A780ff] text-6xl ">Destino</span> app.
             </span>
           </h4>
           <p className="text-xl my-2">Un lugar donde llegar </p>
