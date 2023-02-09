@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./landing.module.css";
 import imagen from "../../assets/hotel.jpg";
-
+import { useNavigate } from "react-router-dom";
 const Landing = () => {
+  const navigate = useNavigate();
+
+  const navigateHonme = () => {
+    navigate("/home");
+  };
+
   return (
     <>
       <section className={`${styles.landing}`}>
@@ -23,7 +29,10 @@ const Landing = () => {
             Mas de 500 casas, 800 apartamentos y miles de destinos en un solo
             lugar.
           </p>
-          <button className="btn hover:bg-[#A780FF] bg-[#A780FF] border-transparent  tracking-widest text-white mt-36 ">
+          <button
+            onClick={navigateHonme}
+            className="btn hover:bg-[#A780FF] bg-[#A780FF] border-transparent  tracking-widest text-white mt-36 "
+          >
             Ingresa Ya
           </button>
         </div>
