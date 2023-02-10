@@ -1,7 +1,17 @@
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Landing from "./pages/landing/Landing";
+import Home from "./pages/Home";
 
 function App() {
-  return <div className="btn"> hola tailwind</div>;
+  return (
+    <>
+      <Routes>
+        <Route exact path="/" element={<Landing />} />
+        <Route exact path="/home" element={<Home />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
