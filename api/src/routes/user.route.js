@@ -6,12 +6,22 @@ import {
   deleteUser,
 } from "../controllers/user.controller.js";
 import { validateDataUpdateUser } from "../validations/user.validations.js";
-
+/* para Ruta Protegida
+import { verifyUser, verifyAdmin } from "../utils/verifyToken.js"
+*/
 const router = express.Router();
 
 router.get("/", getUsers);
 router.get("/:id", getUser);
 router.patch("/:id", validateDataUpdateUser, updateUser);
 router.delete("/:id", deleteUser);
+
+// RUTAS PROTEGIDAS
+/* 
+router.get("/", verifyAdmin, getUsers);
+router.get("/:id", verifyUser, getUser);
+router.patch("/:id", verifyUser, validateDataUpdateUser, updateUser);
+router.delete("/:id", verifyUser, deleteUser);
+*/
 
 export default router;

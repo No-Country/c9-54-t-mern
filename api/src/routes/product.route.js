@@ -6,6 +6,9 @@ import {
   getAllProducts,
   updateProduct,
 } from "../controllers/product.controller.js";
+/* para Ruta Protegida
+import { verifyUser, verifyAdmin } from "../utils/verifyToken.js"
+*/
 
 const router = express.Router();
 
@@ -15,4 +18,14 @@ router.get("/:id", getProductById);
 router.patch("/:id", updateProduct);
 router.delete("/:id", deleteProduct);
 
+/* RUTAS PROTEGIDAS
+crear producto solo admin
+router.post("/", verifyAdmin, createProduct);
+
+cambiar update producto solo admin
+router.patch("/:id", verifyAdmin, updateProduct);
+
+borrar delete producto solo admin
+router.delete("/:id", verifyAdmin, deleteProduct);
+*/
 export default router;
