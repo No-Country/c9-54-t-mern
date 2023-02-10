@@ -1,12 +1,15 @@
 import "./App.css";
-import FilterBar from "./components/filterBar/filterBar";
-import Landing from "./components/landing/Landing";
+import { Route, Routes } from "react-router-dom";
+import Landing from "./pages/landing/Landing";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
-      <Landing />
-      <FilterBar/>
+      <Routes>
+        <Route exact path="/" element={<Landing />} />
+        <Route exact path="/home" element={<Home />} />
+      </Routes>
     </>
   );
 }
