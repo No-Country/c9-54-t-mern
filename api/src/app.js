@@ -9,9 +9,10 @@ const app = express();
 
 //middlewares
 app.use(cors());
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.json());
 
+//Routes
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
 app.use("/api/users", userRoute);
