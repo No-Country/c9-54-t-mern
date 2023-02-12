@@ -20,7 +20,7 @@ const ProductsCard = ({ image, data }) => {
   };
 
   return (
-    <aside className=" bg-transparent w-[250px] h-[280px]  group m-2 rounded-xl">
+    <aside className=" bg-transparent   group m-2 rounded-xl">
       <div className="relative w-full h-[200px] ">
         <img
           className="w-full h-full  object-cover rounded-xl"
