@@ -32,6 +32,18 @@ export const getProductById = async (req, res) => {
   }
 };
 
+export const getProductType = async (req, res) => {
+  const { Type } = req.params;
+  try {
+    const productType = await Product.find({ productType: Type });
+    productType === null
+      ? res.status(404).json({ message: "The Type  not exist" })
+      : res.status(200).json(productType);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 export const updateProduct = async (req, res) => {
   const { id } = req.params;
   const { body } = req;
