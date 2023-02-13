@@ -9,14 +9,16 @@ import data from "../data.json";
 
 const Home = () => {
   return (
-    <div>
-      <FilterBar />
-      <Slider />
-      <ProductContainer>
-        {data.map((data, index) => (
-          <ProductsCard key={index} image={data.image} data={data} />
-        ))}
-      </ProductContainer>
+    <div className="h-full flex flex-col justify-between">
+      <div>
+        <FilterBar />
+        <Slider />
+        <ProductContainer>
+          {data.map((data, index) => (
+            <ProductsCard key={index} image={data.image} data={data} />
+          ))}
+        </ProductContainer>
+      </div>
       <Footer />
     </div>
   );
