@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./products.module.css";
 
 const ProductsCard = ({ image, data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigateProduc = useNavigate();
+  const navigateDescription = () => {
+    navigateProduc("/description");
+  };
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? image.length - 1 : currentIndex - 1;
@@ -23,6 +28,7 @@ const ProductsCard = ({ image, data }) => {
     <aside className=" bg-transparent   group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
       <div className="relative w-full h-[320px]">
         <img
+          onClick={navigateDescription}
           className="w-full h-full  object-cover rounded-xl"
           src={image[currentIndex]}
           alt=""

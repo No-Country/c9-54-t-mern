@@ -37,11 +37,49 @@
   transition: 0.5s, color 0.1s;
   -webkit-transition: 0.5s, color 0.1s;
   -moz-transition: 0.5s, color 0.1s;
+  -ms-transition: 0.5s, color 0.1s;
+  -o-transition: 0.5s, color 0.1s;
 }
 
 .div2:hover {
   box-shadow: 0 8px 8px 0 #00000049, 0 8px 8px 0 #00000049;
-  transform: translate(0px, 5px);
-  -webkit-transform: translate(0px, 5px);
-  -moz-transform: translate(0px, 5px);
+  transform: translate(8px, 5px);
+  -webkit-transform: translate(8px, 5px);
+  -moz-transform: translate(8px, 5px);
+  -ms-transform: translate(8px, 5px);
+  -o-transform: translate(8px, 5px);
+}
+
+.button1 {
+  animation: mover 3s ease-in;
+  -webkit-animation: mover 3s ease-in;
+}
+
+@keyframes mover {
+
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+    -webkit-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+  }
+
+}
+
+@media screen and (min-width: 375px) and (max-width:768) {
+  .landing {
+    background-image: "../../assets/yope.jpg";
+    background: #00000049;
+  }
 }
