@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./products.module.css";
 
 const ProductsCard = ({ image, data }) => {
@@ -20,8 +20,8 @@ const ProductsCard = ({ image, data }) => {
   };
 
   return (
-    <aside className=" bg-transparent   group m-2 rounded-xl">
-      <div className="relative w-full h-[200px] ">
+    <aside className=" bg-transparent   group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
+      <div className="relative w-full h-[320px]">
         <img
           className="w-full h-full  object-cover rounded-xl"
           src={image[currentIndex]}
@@ -30,16 +30,16 @@ const ProductsCard = ({ image, data }) => {
         <div className=" hidden group-hover:block ">
           <div
             onClick={prevSlide}
-            className="w-[20px] h-[20px] absolute flex justify-center items-center cursor-pointer bg-white rounded-[50%] left-1    top-1/2 "
+            className="w-[2rem] h-[2rem] absolute flex justify-center items-center cursor-pointer bg-white rounded-[50%] left-1    top-1/2 "
           >
             {" "}
-            <i className="fa-solid fa-chevron-left  text-[.5rem] text-slate-800"></i>
+            <i className="fa-solid fa-chevron-left  text-slate-800"></i>
           </div>
           <div
             onClick={nextSlide}
-            className="w-[20px] h-[20px]  absolute flex justify-center items-center  cursor-pointer bg-white rounded-[50%]  hover:rounded-[50%] right-1   top-1/2"
+            className="w-[2rem] h-[2rem]  absolute flex justify-center items-center  cursor-pointer bg-white rounded-[50%]  hover:rounded-[50%] right-1   top-1/2"
           >
-            <i className="fa-solid fa-chevron-right text-slate-800 text-[.5rem]"></i>
+            <i className="fa-solid fa-chevron-right text-slate-800 "></i>
           </div>
         </div>
         <div className="absolute  bottom-0 flex  w-full  justify-center m-1">
@@ -59,18 +59,18 @@ const ProductsCard = ({ image, data }) => {
         </div>
       </div>
       <div className="p-1 flex flex-col">
-        <div className="flex items-center justify-between py-0">
-          <span className="text-[.6rem] text-[#0a0a0a]  font-bold">
+        <div className="flex items-center justify-between py-1">
+          <span className="text-[1rem] text-[#0a0a0a]  font-bold">
             {data.title}
           </span>
-          <span className="text-[.6rem]  font-semibold text-[#0a0a0a]">
+          <span className="text-[1rem]  font-semibold text-[#0a0a0a] px-2">
             {data.city}, {data.country}
           </span>
         </div>
-        <span className="text-[#9c9898] font-normal text-[.6rem]  py-0 ">
+        <span className="text-[#9c9898] font-normal text-[1rem]  px-2 ">
           {data.address}
         </span>
-        <span className="text-right text-[#0a0a0a] font-bold text-[.6rem]    ">
+        <span className="text-right text-[#0a0a0a] font-bold text-[.9rem]  px-2">
           US${data.price}
         </span>
       </div>

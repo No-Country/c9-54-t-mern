@@ -29,13 +29,13 @@ const Slider = () => {
   }, [currentIndex]);
 
   return (
-    <div className="h-[360px]  w-fu m-auto  relative group ">
+    <div className="h-[520px]  w-full m-auto  relative group  ">
       <img
-        className="w-full h-full  object-cover"
+        className="w-full h-full  object-cover  object-bottom"
         src={slides[currentIndex].url}
         alt="gooto"
       />
-      <h1 className="absolute text-8xl bottom-2 flex w-full h-full justify-center items-center text-[#e8e3ede2] uppercase  font-bold">
+      <h1 className="absolute  text-[3rem]  lg:text-8xl bottom-2 flex w-full h-full justify-center items-center text-[#e8e3ede2] uppercase  font-bold">
         {slides[currentIndex].name}
       </h1>
 
