@@ -13,6 +13,6 @@ export default [
   },
   {
     name: "Perú",
-    url: "https://amytours.com/wp-content/uploads/2016/08/1457408.jpg",
+    url: "https://images.unsplash.com/photo-1543385426-191664295b58?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1295&q=80",
   },
 ];
