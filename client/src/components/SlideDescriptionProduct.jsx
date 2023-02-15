@@ -1,16 +1,29 @@
 import React, { useState } from "react";
+import images from "../utils/descriptionImages";
 
 const SlideDescriptionProduct = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? data.image.length - 1 : currentIndex - 1;
+    let newIndex;
+    if (data.image.length > 1) {
+      newIndex = isFirstSlide ? data.image.length - 1 : currentIndex - 1;
+    } else {
+      newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
+    }
+
     setCurrentIndex(newIndex);
   };
 
   const nextSlide = () => {
-    const isLastSlide = currentIndex === data.image.length - 1;
+    let isLastSlide;
+    if (data.image.length > 1) {
+      isLastSlide = currentIndex === data.image.length - 1;
+    } else {
+      isLastSlide = currentIndex === images.length - 1;
+    }
+
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
@@ -20,11 +33,19 @@ const SlideDescriptionProduct = ({ data }) => {
       {data !== undefined && (
         <div className="relative w-full h-[320px]">
           <label htmlFor="my-modal-3">
-            <img
-              className="w-full h-full  object-cover"
-              src={data.image[currentIndex]}
-              alt="image"
-            />
+            {data.image.length > 1 ? (
+              <img
+                className="w-full h-full  object-cover"
+                src={data.image[currentIndex]}
+                alt="image"
+              />
+            ) : (
+              <img
+                className="w-full h-full  object-cover"
+                src={images[currentIndex]}
+                alt="image"
+              />
+            )}
           </label>
           <div className="group-hover:block ">
             <div

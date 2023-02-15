@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./modealGalery.module.css";
+import images from "../utils/descriptionImages";
 
 const ModalGalery = ({ data }) => {
   return (
@@ -16,9 +17,21 @@ const ModalGalery = ({ data }) => {
             ✕
           </label>
           <div>
-            {data.image.map((image) => (
-              <img key={image} src={image} />
-            ))}
+            {data?.image.length > 1
+              ? data.image.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    className="w-full object-cover"
+                  />
+                ))
+              : images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    className="w-full object-cover"
+                  />
+                ))}
           </div>
         </div>
       </div>

@@ -16,7 +16,11 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/page/:idPage" element={<FooterPageInformation />} />
-        <Route path="/product/:productId" element={<DescriptionProduct />} />
+        <Route
+          exact
+          path="/product/:productId"
+          element={<DescriptionProduct />}
+        />
       </Routes>
     </>
   );
