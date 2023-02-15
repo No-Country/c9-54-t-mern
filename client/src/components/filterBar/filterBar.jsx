@@ -1,4 +1,5 @@
 import React from "react";
+import todos from "../../assets/todos.jpg";
 import house from "../../assets/house.jpg";
 import bedroom from "../../assets/bedroom.jpg";
 import apartment from "../../assets/apartment.jpg";
@@ -8,18 +9,23 @@ export default function () {
   return (
     <div className={styles.filterBar}>
       <button className={styles.filter}>
-        <img src={house} alt="house" />
-        <p className="text-slate-900">House</p>
+        <img src={todos} alt="Todos" />
+        <p className="text-slate-900">Todos</p>
         <div className={styles.line} />
       </button>
       <button className={styles.filter}>
-        <img src={bedroom} alt="bedroom"></img>
-        <p className="text-slate-900">Bedroom</p>
+        <img src={house} alt="Casas" />
+        <p className="text-slate-900">Casas</p>
         <div className={styles.line} />
       </button>
       <button className={styles.filter}>
-        <img src={apartment} alt="apartment"></img>
-        <p className="text-slate-900">Apartment</p>
+        <img src={bedroom} alt="Habitaciones"></img>
+        <p className="text-slate-900">Habitaciones</p>
+        <div className={styles.line} />
+      </button>
+      <button className={styles.filter}>
+        <img src={apartment} alt="Apartamentos"></img>
+        <p className="text-slate-900">Apartamentos</p>
         <div className={styles.line} />
       </button>
     </div>
