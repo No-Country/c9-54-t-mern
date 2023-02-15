@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./products.module.css";
 
 const ProductsCard = ({ image, data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? image.length - 1 : currentIndex - 1;
@@ -19,9 +20,11 @@ const ProductsCard = ({ image, data }) => {
     setCurrentIndex(x);
   };
 
+  console.log(image);
+
   return (
     <aside className=" bg-transparent   group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
-      <div className="relative w-full h-[320px]">
+      <div className="relative w-full h-[250px]">
         <img
           className="w-full h-full  object-cover rounded-xl"
           src={image[currentIndex]}
@@ -59,18 +62,18 @@ const ProductsCard = ({ image, data }) => {
         </div>
       </div>
       <div className="p-1 flex flex-col">
-        <div className="flex items-center justify-between py-1">
-          <span className="text-[1rem] text-[#0a0a0a]  font-bold">
+        <div className="flex  justify-around flex-col py-1">
+          <span className="text-[.9rem] text-[#0a0a0a]  font-bold  p-1">
             {data.title}
           </span>
-          <span className="text-[1rem]  font-semibold text-[#0a0a0a] px-2">
+          <span className="text-[.9rem]  font-semibold text-[#0a0a0a] p-1 ">
             {data.city}, {data.country}
           </span>
         </div>
-        <span className="text-[#9c9898] font-normal text-[1rem]  px-2 ">
+        <span className="text-[#9c9898] font-normal text-[1rem]  px-1 ">
           {data.address}
         </span>
-        <span className="text-right text-[#0a0a0a] font-bold text-[.9rem]  px-2">
+        <span className="text-right text-[#0a0a0a] font-bold text-[.9rem]  p-1">
           US${data.price}
         </span>
       </div>
