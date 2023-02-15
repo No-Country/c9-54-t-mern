@@ -1,37 +1,44 @@
 import React from "react";
 import logo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const navigatePage = (title) => navigate(`/page/${title}`);
+
+  const navigateHome = () => navigate("/home");
+
   return (
     <>
       <footer className="footer p-10 bg-secondary-content justify-evenly border-t-2">
         <div>
           <span className="text-slate-700 font-bold">Asistencia</span>
           <a
+            onClick={() => navigatePage("Centro de ayuda")}
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/help/?audience=guest"
-            target={"_blank"}
           >
             Centro de ayuda
           </a>
           <a
+            onClick={() =>
+              navigatePage("Apoyo a las personas con discapacidad")
+            }
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/accessibility"
-            target={"_blank"}
           >
             Apoyo a las personas con discapacidad
           </a>
           <a
+            onClick={() => navigatePage("Opciones de cancelación")}
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/help/article/2701"
-            target={"_blank"}
           >
-            Opciones de cancelacion
+            Opciones de cancelación
           </a>
           <a
+            onClick={() =>
+              navigatePage("Denunciar un problema en el vecindario")
+            }
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/help/article/3290"
-            target={"_blank"}
           >
             Denunciar un problema en el vecindario
           </a>
@@ -39,40 +46,35 @@ const Footer = () => {
         <div>
           <span className="text-slate-700 font-bold">tu destino app</span>
           <a
+            onClick={() => navigatePage("Luchamos contra la discriminación")}
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/against-discrimination"
-            target={"_blank"}
           >
             Luchamos contra la discriminación
           </a>
           <a
+            onClick={() => navigatePage("Carreras")}
             className="link text-slate-600 link-hover"
-            href="https://careers.airbnb.com/"
-            target={"_blank"}
           >
             Carreras
           </a>
           <a
+            onClick={() => navigatePage("Proteccion al cliente")}
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/2022-winter"
-            target={"_blank"}
           >
-            Proteccion al cliente
+            Protección al cliente
           </a>
         </div>
         <div>
           <span className="text-slate-900 font-bold">Legal</span>
           <a
+            onClick={() => navigatePage("Politicas de cancelación")}
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/help/article/149"
-            target={"_blank"}
           >
             Politicas de cancelación
           </a>
           <a
+            onClick={() => navigatePage("Politicas de privacidad")}
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/help/article/3175"
-            target={"_blank"}
           >
             Politicas de privacidad
           </a>
@@ -80,27 +82,32 @@ const Footer = () => {
         <div>
           <span className="text-slate-700 font-bold">comunidad</span>
           <a
+            onClick={() =>
+              navigatePage(
+                "Tu destino: alojamiento de ayuda en caso de catástrofe"
+              )
+            }
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/help/article/149"
-            target={"_blank"}
           >
             Tu destino: alojamiento de ayuda en caso de catástrofe
           </a>
           <a
+            onClick={() => navigatePage("Recursos para anfitriones")}
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/help/article/3175"
-            target={"_blank"}
           >
             Recursos para anfitriones
           </a>
           <a
+            onClick={() =>
+              navigatePage(
+                "Como brindar servicios de anfitrión de forma responsable"
+              )
+            }
             className="link text-slate-600 link-hover"
-            href="https://www.airbnb.com.co/help/article/3175"
-            target={"_blank"}
           >
             Como brindar servicios de anfitrión de forma responsable
           </a>
-          <div className="w-56 mt-4">
+          <div onClick={navigateHome} className="w-56 mt-4 cursor-pointer">
             <img src={logo} alt="logo" />{" "}
           </div>
         </div>

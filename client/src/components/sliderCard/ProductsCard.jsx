@@ -24,9 +24,11 @@ const ProductsCard = ({ image, data }) => {
     setCurrentIndex(x);
   };
 
+  console.log(image);
+
   return (
     <aside className=" bg-transparent   group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
-      <div className="relative w-full h-[320px]">
+      <div className="relative w-full h-[250px]">
         <img
           className="w-full h-full  object-cover rounded-xl"
           src={image[currentIndex]}
@@ -68,14 +70,14 @@ const ProductsCard = ({ image, data }) => {
           <span className="text-[1rem] text-[#0a0a0a]  font-bold">
             {data.title}
           </span>
-          <span className="text-[1rem]  font-semibold text-[#0a0a0a] px-2">
+          <span className="text-[.9rem]  font-semibold text-[#0a0a0a] p-1 ">
             {data.city}, {data.country}
           </span>
         </div>
-        <span className="text-[#9c9898] font-normal text-[1rem]  px-2 ">
+        <span className="text-[#9c9898] font-normal text-[1rem]  px-1 ">
           {data.address}
         </span>
-        <span className="text-right text-[#0a0a0a] font-bold text-[.9rem]  px-2">
+        <span className="text-right text-[#0a0a0a] font-bold text-[.9rem]  p-1">
           US${data.price}
         </span>
       </div>

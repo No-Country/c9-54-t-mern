@@ -29,9 +29,9 @@ const Slider = () => {
   }, [currentIndex]);
 
   return (
-    <div className="h-[520px]  w-full m-auto  relative group  ">
+    <div className="h-[575px]  w-full m-auto  relative group  ">
       <img
-        className="w-full h-full  object-cover  object-bottom"
+        className="w-full h-full  object-fill  object-center"
         src={slides[currentIndex].url}
         alt="gooto"
       />
