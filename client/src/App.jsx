@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import FooterPageInformation from "./pages/FooterPageInformation";
+import DescriptionProduct from "./pages/DescriptionProduct";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/page/:idPage" element={<FooterPageInformation />} />
+        <Route path="/product/:productId" element={<DescriptionProduct />} />
       </Routes>
     </>
   );
