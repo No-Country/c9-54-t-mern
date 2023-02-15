@@ -50,36 +50,38 @@
   -o-transform: translate(8px, 5px);
 }
 
-.button1 {
-  animation: mover 3s ease-in;
-  -webkit-animation: mover 3s ease-in;
-}
-
-@keyframes mover {
-
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-    -webkit-transform: translateX(-100px);
-    -moz-transform: translateX(-100px);
-    -ms-transform: translateX(-100px);
-    -o-transform: translateX(-100px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0);
-    -webkit-transform: translate(0);
-    -moz-transform: translate(0);
-    -ms-transform: translate(0);
-    -o-transform: translate(0);
-  }
-
-}
-
-@media screen and (min-width: 375px) and (max-width:768) {
+@media screen and (max-width:768px) {
   .landing {
-    background-image: "../../assets/yope.jpg";
-    background: #00000049;
+    height: 100vh;
+    width: 100%;
+    display: flex;
   }
+
+  .div1 {
+    margin-top: 10%;
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+  }
+
+  .div2 {
+    width: 80%;
+    height: 55%;
+    margin-top: 166px;
+    margin-left: 10%;
+  }
+
+  .h4 {
+    text-align: center;
+  }
+
+  .parrafo1 {
+    text-align: center;
+    margin-left: 5%;
+  }
+
+  .parrafo2 {
+    margin-top: 30%;
+  }
+
 }

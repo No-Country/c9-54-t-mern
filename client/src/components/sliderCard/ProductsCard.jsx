@@ -28,7 +28,6 @@ const ProductsCard = ({ image, data }) => {
     <aside className=" bg-transparent   group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
       <div className="relative w-full h-[320px]">
         <img
-          onClick={navigateDescription}
           className="w-full h-full  object-cover rounded-xl"
           src={image[currentIndex]}
           alt=""
@@ -64,7 +63,7 @@ const ProductsCard = ({ image, data }) => {
           ))}
         </div>
       </div>
-      <div className="p-1 flex flex-col">
+      <div onClick={navigateDescription} className="p-1 flex flex-col">
         <div className="flex items-center justify-between py-1">
           <span className="text-[1rem] text-[#0a0a0a]  font-bold">
             {data.title}
