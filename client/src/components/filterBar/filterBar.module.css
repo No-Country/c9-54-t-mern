@@ -27,6 +27,7 @@
   visibility: hidden;
   width: 90%;
   border-bottom: 2px solid black;
+  border-radius: 10rem;
 }
 
 .filter:hover .line,
@@ -36,9 +37,9 @@
   zoom: 1;
 }
 
-.filter:click .line,
-.filter:click {
-  visibility: visible;
+.filter:active .line,
+.filter:active {
+  transform: scale(0.92);
   opacity: 1;
   zoom: 1;
 }

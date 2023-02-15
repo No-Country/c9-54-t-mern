@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import slides from "../../utils/imagesCountries";
 
-import slides from "../../image";
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,7 +31,7 @@ const Slider = () => {
   return (
     <div className="h-[575px]  w-full m-auto  relative group  ">
       <img
-        className="w-full h-full  object-fill  object-center"
+        className="w-full h-full object-cover"
         src={slides[currentIndex].url}
         alt="gooto"
       />

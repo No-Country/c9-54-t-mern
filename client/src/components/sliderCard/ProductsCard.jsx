@@ -4,10 +4,8 @@ import styles from "./products.module.css";
 
 const ProductsCard = ({ image, data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const navigateProduc = useNavigate();
-  const navigateDescription = () => {
-    navigateProduc("/description");
-  };
+  const navigate = useNavigate();
+
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? image.length - 1 : currentIndex - 1;
@@ -24,15 +22,18 @@ const ProductsCard = ({ image, data }) => {
     setCurrentIndex(x);
   };
 
-  console.log(image);
+  const navigateDescription = (productId) => {
+    navigate(`/product/${productId}`);
+  };
 
   return (
     <aside className=" bg-transparent   group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
       <div className="relative w-full h-[250px]">
         <img
+          onClick={() => navigateDescription(data._id)}
           className="w-full h-full  object-cover rounded-xl"
           src={image[currentIndex]}
-          alt=""
+          alt="image product"
         />
         <div className=" hidden group-hover:block ">
           <div
@@ -65,7 +66,7 @@ const ProductsCard = ({ image, data }) => {
           ))}
         </div>
       </div>
-      <div onClick={navigateDescription} className="p-1 flex flex-col">
+      <div className="p-1 flex flex-col">
         <div className="flex items-center justify-between py-1">
           <span className="text-[1rem] text-[#0a0a0a]  font-bold">
             {data.title}

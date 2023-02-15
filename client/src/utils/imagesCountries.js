@@ -1,7 +1,7 @@
 export default [
   {
     name: "Argentina",
-    url: "https://argentinavision.com/wp-content/uploads/2021/08/excursion-puerto-piramides-argentina-vision-2022-01.jpg",
+    url: "https://images.unsplash.com/photo-1586354822120-bf910e563cdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
   },
   {
     name: "Colombia",
@@ -9,7 +9,7 @@ export default [
   },
   {
     name: "venezuela",
-    url: "https://gdb.voanews.com/c36e0000-0aff-0242-8f94-08d9f15ef311_w1023_s.png",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lateral_de_la_Santa_Iglesia_Catedral_Metropolitana%2C_Catedral_de_Barquisimeto.jpg/2560px-Lateral_de_la_Santa_Iglesia_Catedral_Metropolitana%2C_Catedral_de_Barquisimeto.jpg",
   },
   {
     name: "Perú",
