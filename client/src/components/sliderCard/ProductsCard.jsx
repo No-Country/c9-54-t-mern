@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./products.module.css";
 
 const ProductsCard = ({ image, data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
@@ -20,15 +22,18 @@ const ProductsCard = ({ image, data }) => {
     setCurrentIndex(x);
   };
 
-  console.log(image);
+  const navigateDescription = (productId) => {
+    navigate(`/product/${productId}`);
+  };
 
   return (
     <aside className=" bg-transparent   group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
       <div className="relative w-full h-[250px]">
         <img
+          onClick={() => navigateDescription(data._id)}
           className="w-full h-full  object-cover rounded-xl"
           src={image[currentIndex]}
-          alt=""
+          alt="image product"
         />
         <div className=" hidden group-hover:block ">
           <div
