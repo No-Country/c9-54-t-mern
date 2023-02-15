@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./products.module.css";
 
@@ -67,8 +67,8 @@ const ProductsCard = ({ image, data }) => {
         </div>
       </div>
       <div className="p-1 flex flex-col">
-        <div className="flex  justify-around flex-col py-1">
-          <span className="text-[.9rem] text-[#0a0a0a]  font-bold  p-1">
+        <div className="flex items-center justify-between py-1">
+          <span className="text-[1rem] text-[#0a0a0a]  font-bold">
             {data.title}
           </span>
           <span className="text-[.9rem]  font-semibold text-[#0a0a0a] p-1 ">
