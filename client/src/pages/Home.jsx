@@ -5,7 +5,7 @@ import Footer from "../components/footer/Footer";
 import Slider from "../components/slider/Slider";
 import ProductContainer from "../components/sliderCard/ProductContainer";
 import ProductsCard from "../components/sliderCard/ProductsCard";
-import NavBar from "../components/navBar/navBar";
+import NavBar from "../components/navBar/NavBar";
 
 const Home = () => {
   const [products, setProducts] = useState();
@@ -13,14 +13,16 @@ const Home = () => {
   const [filteredProducts, setFilteredProducts] = useState();
 
   const updateFilter = (filter) => {
-      setFilter(filter)
-  }
+    setFilter(filter);
+  };
 
   useEffect(() => {
-    if(filter === "all"){
-      setFilteredProducts(products)
-    } else{
-      setFilteredProducts(products.filter(product => product.productType === filter));
+    if (filter === "all") {
+      setFilteredProducts(products);
+    } else {
+      setFilteredProducts(
+        products.filter((product) => product.productType === filter)
+      );
     }
   }, [filter]);
 
@@ -36,16 +38,17 @@ const Home = () => {
       });
   }, []);
 
-
   return (
     <div className="h-full flex flex-col justify-between">
       <div>
         <Slider />
-        <div className="container mx-auto">
-        <NavBar/>
-        </div>
-        <div className="mt-3 border-b-2">
-          <FilterBar updateFilter={updateFilter}/>
+        <div className="sticky top-0 z-10 bg-[#ebebeb] pt-4">
+          <div className="container mx-auto ">
+            <NavBar />
+          </div>
+          <div className="border-b-2 mt-6">
+            <FilterBar updateFilter={updateFilter} />
+          </div>
         </div>
         <div className="container mx-auto">
           <ProductContainer>
