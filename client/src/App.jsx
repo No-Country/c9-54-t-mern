@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import FooterPageInformation from "./pages/FooterPageInformation";
 import DescriptionProduct from "./pages/DescriptionProduct";
+import Perfil from "./components/perfil/Perfil";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           path="/product/:productId"
           element={<DescriptionProduct />}
         />
+        <Route exact path="/perfil" element={<Perfil />} />
       </Routes>
     </>
   );
