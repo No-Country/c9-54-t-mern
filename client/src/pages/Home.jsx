@@ -5,6 +5,7 @@ import Footer from "../components/footer/Footer";
 import Slider from "../components/slider/Slider";
 import ProductContainer from "../components/sliderCard/ProductContainer";
 import ProductsCard from "../components/sliderCard/ProductsCard";
+import NavBar from "../components/navBar/navBar";
 
 const Home = () => {
   const [products, setProducts] = useState();
@@ -40,6 +41,9 @@ const Home = () => {
     <div className="h-full flex flex-col justify-between">
       <div>
         <Slider />
+        <div className="container mx-auto">
+        <NavBar/>
+        </div>
         <div className="mt-3 border-b-2">
           <FilterBar updateFilter={updateFilter}/>
         </div>
