@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import FormRegister from "../../components/register/FormRegister";
 import style from "./register.module.css";
 
 const Register = () => {
   const [register, setRegister] = useState(false);
+  const navigate = useNavigate();
+
+  const navigateHome = () => {
+    navigate("/home");
+  };
+
   return (
     <div className="h-screen flex-col lg:flex lg:flex-row">
       <div className="lg:w-full lg:h-screen lg:bg-[url('./assets/imgRegister.jpg')] lg:bg-cover"></div>
@@ -11,7 +18,13 @@ const Register = () => {
         className={`${style.hero} w-full flex flex-shrink-0 h-full flex-col justify-center lg:w-1/3 lg:bg-[#ebebeb]`}
       >
         {register == false ? (
-          <h4 className="text-2xl px-[2rem] cursor-default font-bold text-slate-500">
+          <h4 className="text-2xl px-[2rem] cursor-default font-bold text-slate-500 relative">
+            <button
+              onClick={navigateHome}
+              className="rounded-full bg-white w-11 p-1 text-center cursor-pointer absolute left-[-0.5rem] top-[-1rem]"
+            >
+              <i onClick={navigateHome} className="fa-solid fa-arrow-left"></i>
+            </button>
             <p>Descubre nuevas experiencias.</p>
             <span>
               <span className="text-[#A780ff] text-4xl">Registrate</span> ahora!
