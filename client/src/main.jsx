@@ -8,10 +8,10 @@ import store from "./store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HashRouter>
-      <Provider store={store}>
+    <Provider store={store}>
+      <HashRouter>
         <App />
-      </Provider>
-    </HashRouter>
+      </HashRouter>
+    </Provider>
   </React.StrictMode>
 );
