@@ -34,7 +34,7 @@ const Map = ({ data }) => {
   let corY;
 
   for (let i = 0; i < localization.length; i++) {
-    if (data.city === localization[i].city) {
+    if (data.city.toLowerCase() === localization[i].city) {
       corX = localization[i].latitude.x;
       corY = localization[i].latitude.y;
     }

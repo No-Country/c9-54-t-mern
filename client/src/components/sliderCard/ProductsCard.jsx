@@ -27,7 +27,7 @@ const ProductsCard = ({ image, data }) => {
   };
 
   return (
-    <aside className=" bg-transparent   group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
+    <aside className=" bg-transparent lg:w-[343px] group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
       <div className="relative w-full h-[250px]">
         <img
           onClick={() => navigateDescription(data._id)}

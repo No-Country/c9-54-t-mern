@@ -1,6 +1,6 @@
-import axios, { all } from "axios";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import FilterBar from "../components/filterBar/filterBar";
+import FilterBar from "../components/filterBar/FilterBar";
 import Footer from "../components/footer/Footer";
 import Slider from "../components/slider/Slider";
 import ProductContainer from "../components/sliderCard/ProductContainer";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import images from "../utils/descriptionImages";
+import images from "../../utils/descriptionImages";
 
 const SlideDescriptionProduct = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

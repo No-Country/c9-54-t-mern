@@ -1,4 +1,4 @@
-import images from "../utils/descriptionImages";
+import images from "../../utils/descriptionImages";
 
 const GaleryProduct = ({ data }) => {
   return (

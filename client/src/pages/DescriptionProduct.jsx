@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import GaleryProduct from "../components/GaleryProduct";
+import GaleryProduct from "../components/productDescription/GaleryProduct";
+import SlideDescriptionProduct from "../components/productDescription/SlideDescriptionProduct";
+import ModalGalery from "../components/productDescription/ModalGalery";
+import Map from "../components/productDescription/Map";
 import Footer from "../components/footer/Footer";
-import SlideDescriptionProduct from "../components/SlideDescriptionProduct";
-import ModalGalery from "../components/ModalGalery";
 import { useParams } from "react-router-dom";
 import getProduct from "../services/getProduct.services";
-import Map from "../components/Map";
 import NavBar from "../components/navBar/NavBar";
 
 const DescriptionProduct = () => {

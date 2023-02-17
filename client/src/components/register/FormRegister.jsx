@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +17,23 @@ const FormRegister = ({ setRegister }) => {
   const navigateLogin = () => navigate("/login");
 
   const onSubmit = async (data) => {
-    const result = await fetchRegister(data);
+    //Carga de imagen a cloudinary
+    const img = new FormData();
+    img.append("upload_preset", "myuploads");
+    img.append("file", data.image[0]);
+    const uploadRes = await axios.post(
+      "https://api.cloudinary.com/v1_1/djdp4cavt/image/upload",
+      img
+    );
+
+    const { url } = uploadRes.data;
+
+    const newData = {
+      ...data,
+      image: url,
+    };
+
+    const result = await fetchRegister(newData);
     setresultFech(result);
 
     if (result.status === 200) {
@@ -85,7 +102,7 @@ const FormRegister = ({ setRegister }) => {
               <span className="label-text text-slate-500">Contraseña</span>
             </label>
             <input
-              type="text"
+              type="password"
               placeholder="contraseña"
               className="input input-bordered bg-zinc-300 text-black"
               {...register("password", {
@@ -184,9 +201,8 @@ const FormRegister = ({ setRegister }) => {
               <span className="label-text text-slate-500">Image</span>
             </label>
             <input
-              type="text"
-              placeholder="Image"
-              className="input input-bordered bg-zinc-300 text-black"
+              type="file"
+              className="file-input file-input-bordered file-input-primary bg-zinc-300 text-slate-500 text-sm"
               {...register("image", {
                 required: false,
               })}

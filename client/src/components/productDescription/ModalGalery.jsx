@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./modealGalery.module.css";
-import images from "../utils/descriptionImages";
+import images from "../../utils/descriptionImages";
 
 const ModalGalery = ({ data }) => {
   return (
