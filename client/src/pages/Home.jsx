@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import CardsFilter from "../components/cardsFilter/CardsFilter";
 import FilterBar from "../components/filterBar/FilterBar";
 import Footer from "../components/footer/Footer";
 import Slider from "../components/slider/Slider";
@@ -11,20 +12,43 @@ const Home = () => {
   const [products, setProducts] = useState();
   const [filter, setFilter] = useState("all");
   const [filteredProducts, setFilteredProducts] = useState();
-
+  const [cardFilter, setCardFilter] = useState({
+    country: "",
+    city: "",
+  });
+  
   const updateFilter = (filter) => {
     setFilter(filter);
-  };
 
+  };
+  const applyFilter = () => {
+    setCardFilter({
+      country: document.getElementById("selectCountry").value,
+      city: document.getElementById("selectCity").value,
+    })
+  }
+
+  
   useEffect(() => {
     if (filter === "all") {
       setFilteredProducts(products);
     } else {
       setFilteredProducts(
         products.filter((product) => product.productType === filter)
-      );
-    }
-  }, [filter]);
+        );
+      }
+    }, [filter]);
+
+   useEffect(() => {
+      if (cardFilter.country === "" && cardFilter.city === "") {
+        setFilteredProducts(products);
+      } else {
+        setFilteredProducts(
+          products.filter((product) => product.country === cardFilter.country && product.city === cardFilter.city)
+          );
+        }
+      }, [cardFilter]);
+  
 
   useEffect(() => {
     axios
@@ -50,7 +74,8 @@ const Home = () => {
             <FilterBar updateFilter={updateFilter} />
           </div>
         </div>
-        <div className="container mx-auto">
+        <div className="container mx-auto flex ">
+          <CardsFilter applyFilter={applyFilter}></CardsFilter>
           <ProductContainer>
             {filteredProducts?.map((prod, index) => (
               <ProductsCard key={index} image={prod.image} data={prod} />

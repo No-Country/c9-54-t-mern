@@ -43,3 +43,11 @@
   opacity: 1;
   zoom: 1;
 }
+
+.filter:focus .line,
+.filter:focus {
+  visibility: visible;
+  opacity: 1;
+  zoom: 1;
+}
+
