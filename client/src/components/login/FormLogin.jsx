@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import fetchLogin from "../../services/login.services";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../../store/slices/name.slice";
 
 const FormLogin = () => {
   const [resultFech, setResultFech] = useState();
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -17,7 +22,14 @@ const FormLogin = () => {
   const onSubmit = async (data) => {
     const result = await fetchLogin(data);
     setResultFech(result);
-    console.log(result);
+    if (result) {
+      dispatch(
+        setUser({
+          email: result.details.email,
+          image: result.details.image,
+        })
+      );
+    }
 
     if (typeof result === "object") {
       navigate("/home");

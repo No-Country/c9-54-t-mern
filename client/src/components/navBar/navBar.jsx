@@ -2,9 +2,11 @@ import React from "react";
 import logo from "../../assets/LogoIcono.png";
 import image from "../../assets/imgLogin.jpg";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const users = useSelector((state) => state.user);
 
   const navigateIngresar = () => {
     navigate("/login");
@@ -16,6 +18,7 @@ const NavBar = () => {
     navigate("/home");
   };
 
+  console.log(users);
   return (
     <div className="navbar bg-[#ebebeb] justify-between px-10 max-[800px]:px-3">
       <div onClick={navigateHome}>
@@ -28,11 +31,14 @@ const NavBar = () => {
           className="input input-bordered w-4/5 bg-white rounded-full shadow-lg text-slate-600"
         />
       </div>
+      <div className="p-4 text-black">
+        <span className="text-black">{users.email}</span>
+      </div>
       <div className="flex-none gap-2">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-12 rounded-full shadow-xl">
-              <img src={image} alt="image" />{" "}
+              <img src={users.image ? users.image : image} />
             </div>
           </label>
           <ul
