@@ -6,7 +6,6 @@ import Slider from "../components/slider/Slider";
 import ProductContainer from "../components/sliderCard/ProductContainer";
 import ProductsCard from "../components/sliderCard/ProductsCard";
 import NavBar from "../components/navBar/navBar";
-import { useSelector } from "react-redux";
 
 const Home = () => {
   const [products, setProducts] = useState();
