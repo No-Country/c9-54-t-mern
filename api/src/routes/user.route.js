@@ -4,6 +4,7 @@ import {
   getUser,
   updateUser,
   deleteUser,
+  getQtyUsers,
 } from "../controllers/user.controller.js";
 import { validateDataUpdateUser } from "../validations/user.validations.js";
 /* para Ruta Protegida
@@ -15,6 +16,7 @@ router.get("/", getUsers);
 router.get("/:id", getUser);
 router.patch("/:id", validateDataUpdateUser, updateUser);
 router.delete("/:id", deleteUser);
+router.get("/count/count", getQtyUsers);
 
 // RUTAS PROTEGIDAS
 /* 
