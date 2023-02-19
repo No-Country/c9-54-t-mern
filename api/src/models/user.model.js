@@ -29,6 +29,7 @@ const UserSchema = new mongoose.Schema({
   },
   image: {
     type: String,
+    default: "https://i.ibb.co/MBtjqXQ/no-avatar.gif",
   },
   age: {
     type: Number,
