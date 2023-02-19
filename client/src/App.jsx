@@ -7,6 +7,7 @@ import Register from "./pages/register/Register";
 import FooterPageInformation from "./pages/FooterPageInformation";
 import DescriptionProduct from "./pages/DescriptionProduct";
 import MyProfile from "./pages/MyProfile";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
           path="/product/:productId"
           element={<DescriptionProduct />}
         />
-        <Route exact path="/perfil" element={<MyProfile />} />
+        <Route exact path="/profile" element={<MyProfile />} />
+        <Route exact path="*" element={<Error />} />
       </Routes>
     </>
   );
