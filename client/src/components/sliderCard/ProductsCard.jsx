@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./products.module.css";
 
@@ -27,7 +27,7 @@ const ProductsCard = ({ image, data }) => {
   };
 
   return (
-    <aside className=" bg-transparent lg:w-[343px] group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl ">
+    <aside className=" bg-transparent w-full min-[1270px]:w-[343px] group m-2 rounded-xl hover:scale-105 duration-300 cursor-pointer hover:shadow-2xl justify-items-center">
       <div className="relative w-full h-[250px]">
         <img
           onClick={() => navigateDescription(data._id)}
@@ -67,19 +67,20 @@ const ProductsCard = ({ image, data }) => {
         </div>
       </div>
       <div className="p-1 flex flex-col">
-        <div className="flex items-center justify-between py-1">
+        <div className="flex items-start justify-between py-1">
           <span className="text-[1rem] text-[#0a0a0a]  font-bold">
             {data.title}
           </span>
-          <span className="text-[.9rem]  font-semibold text-[#0a0a0a] p-1 ">
+          <div className="w-[10rem] text-[.9rem] font-medium text-[#0a0a0a] p-1 text-end">
             {data.city}, {data.country}
-          </span>
+          </div>
         </div>
         <span className="text-[#9c9898] font-normal text-[1rem]  px-1 ">
           {data.address}
         </span>
         <span className="text-right text-[#0a0a0a] font-bold text-[.9rem]  p-1">
-          US${data.price}
+          ${data.price} US{" "}
+          <span className="text-slate-700 font-light">noche</span>
         </span>
       </div>
     </aside>
