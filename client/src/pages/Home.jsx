@@ -9,22 +9,41 @@ import NavBar from "../components/navBar/NavBar";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredProducts, setFilteredProducts] = useState();
+
   const search = useSelector((state) => state.search);
 
   useEffect(() => {
     axios
       .get("https://tudestinoapp-production.up.railway.app/api/products")
       .then((res) => {
-        setProducts(res.data);
-        setFilteredProducts(res.data);
+        let result;
+
+        if (search !== "") {
+          result = res.data.filter(
+            (item) => item.country.toLowerCase() === search.toLowerCase()
+          );
+
+          if (result.length > 0) {
+            setProducts(result);
+            setFilteredProducts(result);
+            console.log(result);
+          } else {
+            console.log("result");
+            setProducts([]);
+            setFilteredProducts([]);
+          }
+        } else {
+          setProducts(res.data);
+          setFilteredProducts(res.data);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [search]);
 
   const updateFilter = (filter) => {
     setFilter(filter);
@@ -41,7 +60,7 @@ const Home = () => {
   }, [filter]);
 
   return (
-    <div className="h-full flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col justify-between">
       <div>
         <Slider />
         <div className="sticky top-0 z-10 bg-[#ebebeb] pt-4">
@@ -54,9 +73,15 @@ const Home = () => {
         </div>
         <div className="container mx-auto">
           <ProductContainer>
-            {filteredProducts?.map((prod, index) => (
-              <ProductsCard key={index} image={prod.image} data={prod} />
-            ))}
+            {products.length > 0 ? (
+              filteredProducts?.map((prod, index) => (
+                <ProductsCard key={index} image={prod.image} data={prod} />
+              ))
+            ) : (
+              <h2 className="p-5 text-3xl text-slate-400">
+                No se encontraron coincidencias{" "}
+              </h2>
+            )}
           </ProductContainer>
         </div>
       </div>

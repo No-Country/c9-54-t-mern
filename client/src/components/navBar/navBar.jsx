@@ -13,6 +13,7 @@ const NavBar = () => {
   const [dataSearch, setDataSearch] = useState("");
 
   const users = useSelector((state) => state.user);
+  const searchs = useSelector((state) => state.search);
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -66,14 +67,21 @@ const NavBar = () => {
     navigate("/cambiar ruta conectar con dashboard");
   };
 
-  const onSearch = (e) => {
-    setDataSearch(e.target.value);
-  };
-
   const onSubmit = (e) => {
-    navigate("/home");
     e.preventDefault();
     dispatch(setSearch(dataSearch));
+    navigate("/home");
+  };
+
+  const cleanSearch = () => {
+    dispatch(setSearch(""));
+    if (searchs !== "") {
+      setDataSearch("");
+    }
+  };
+
+  const onSearch = (e) => {
+    setDataSearch(e.target.value);
   };
 
   return (
@@ -81,7 +89,10 @@ const NavBar = () => {
       <div onClick={navigateHome}>
         <img className="w-12 cursor-pointer" src={logo} alt="logo" />{" "}
       </div>
-      <form onSubmit={onSubmit} className="form-control w-full flex relative">
+      <form
+        onSubmit={onSubmit}
+        className="form-control w-full flex relative flex-row justify-center max-[600px]:justify-start gap-4"
+      >
         <button
           onClick={search}
           className="rounded-full w-10 p-2 shadow-lg text-center min-[600px]:hidden bg-white cursor-pointer self-start ml-4"
@@ -90,20 +101,27 @@ const NavBar = () => {
         </button>
         <input
           type="search"
-          placeholder="Ciudad o pais"
+          placeholder="Pais"
           className="input input-bordered w-4/5 bg-white rounded-full shadow-lg text-slate-600 max-[600px]:hidden"
-          name="search"
+          value={dataSearch}
           onChange={onSearch}
         />
         <input
           type="search"
           placeholder="Ciudad o pais"
+          value={dataSearch}
+          onChange={onSearch}
           className={
             handleSearch === true
               ? `input input-bordered w-[12rem] bg-white rounded-full shadow-lg text-slate-600 absolute left-16 top-[-0.3rem] min-[600px]:hidden`
               : `hidden`
           }
         />
+        {searchs !== "" && (
+          <p onClick={cleanSearch} className="">
+            limpiar
+          </p>
+        )}
       </form>
       <div className="flex-none gap-2">
         <div className="p-4">
