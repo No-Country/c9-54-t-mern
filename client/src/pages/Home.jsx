@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import FilterBar from "../components/filterBar/FilterBar";
+import FilterBar from "../components/filterBar/filterBar";
 import Footer from "../components/footer/Footer";
 import Slider from "../components/slider/Slider";
 import ProductContainer from "../components/sliderCard/ProductContainer";
 import ProductsCard from "../components/sliderCard/ProductsCard";
-import NavBar from "../components/navBar/NavBar";
+import NavBar from "../components/navBar/navBar";
 import { useSelector } from "react-redux";
 
 const Home = () => {
