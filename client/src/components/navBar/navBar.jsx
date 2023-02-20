@@ -108,7 +108,7 @@ const NavBar = () => {
         />
         <input
           type="search"
-          placeholder="Ciudad o pais"
+          placeholder="Pais"
           value={dataSearch}
           onChange={onSearch}
           className={
@@ -118,7 +118,10 @@ const NavBar = () => {
           }
         />
         {searchs !== "" && (
-          <p onClick={cleanSearch} className="">
+          <p
+            onClick={cleanSearch}
+            className="cursor-pointer font-bold hover:text-[#A780ff]"
+          >
             limpiar
           </p>
         )}

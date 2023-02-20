@@ -8,8 +8,11 @@ import FooterPageInformation from "./pages/FooterPageInformation";
 import DescriptionProduct from "./pages/DescriptionProduct";
 import MyProfile from "./pages/MyProfile";
 import Error from "./pages/Error";
+import { useSelector } from "react-redux";
 
 function App() {
+  const user = useSelector((state) => state.user);
+
   return (
     <>
       <Routes>
@@ -23,7 +26,11 @@ function App() {
           path="/product/:productId"
           element={<DescriptionProduct />}
         />
-        <Route exact path="/profile" element={<MyProfile />} />
+        <Route
+          exact
+          path="/profile"
+          element={user.username !== "" ? <MyProfile /> : <Error />}
+        />
         <Route exact path="*" element={<Error />} />
       </Routes>
     </>

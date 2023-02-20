@@ -29,9 +29,7 @@ const Home = () => {
           if (result.length > 0) {
             setProducts(result);
             setFilteredProducts(result);
-            console.log(result);
           } else {
-            console.log("result");
             setProducts([]);
             setFilteredProducts([]);
           }
@@ -71,14 +69,14 @@ const Home = () => {
             <FilterBar updateFilter={updateFilter} />
           </div>
         </div>
-        <div className="container mx-auto">
+        <div className="container mx-auto relative min-h-[16rem]">
           <ProductContainer>
             {products.length > 0 ? (
               filteredProducts?.map((prod, index) => (
                 <ProductsCard key={index} image={prod.image} data={prod} />
               ))
             ) : (
-              <h2 className="p-5 text-3xl text-slate-400">
+              <h2 className="p-5 text-[2rem] text-slate-400 absolute top-0 left-[1rem] max-[795px]:left-0 uppercase">
                 No se encontraron coincidencias{" "}
               </h2>
             )}
