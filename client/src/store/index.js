@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import name from "./slices/name.slice";
+import user from "./slices/user.slice";
+import search from "./slices/search.slice";
 
 export default configureStore({
   reducer: {
-    name,
+    user,
+    search,
   },
 });
