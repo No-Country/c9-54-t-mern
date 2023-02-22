@@ -4,8 +4,12 @@ import {
   deleteProduct,
   getProductById,
   getAllProducts,
-  updateProduct,
+  getProductType,
+  updateProduct
 } from "../controllers/product.controller.js";
+import {validateDataUpdateProduct,validateDataCreateProduct} from '../validations/product.validations.js'
+
+
 /* para Ruta Protegida
 import { verifyUser, verifyAdmin } from "../utils/verifyToken.js"
 */
@@ -13,9 +17,10 @@ import { verifyUser, verifyAdmin } from "../utils/verifyToken.js"
 const router = express.Router();
 
 router.get("/", getAllProducts);
-router.post("/", createProduct);
+router.post("/", validateDataCreateProduct,createProduct);
 router.get("/:id", getProductById);
-router.patch("/:id", updateProduct);
+router.get("/type/:Type", getProductType);
+router.patch("/:id",validateDataUpdateProduct, updateProduct);
 router.delete("/:id", deleteProduct);
 
 /* RUTAS PROTEGIDAS

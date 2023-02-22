@@ -9,6 +9,15 @@ export const getUsers = async (req, res) => {
   }
 };
 
+export const getQtyUsers = async (req, res) => {
+  try {
+    const qtyUsersQuery = await User.where({ isActive: true }).countDocuments();
+    res.status(200).json(qtyUsersQuery);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
