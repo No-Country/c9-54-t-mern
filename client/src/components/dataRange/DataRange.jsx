@@ -1,13 +1,24 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const DataRange = ({ info }) => {
   const [result, setResult] = useState();
+  const [price, setPrice] = useState();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const toltalPrice = (data) => {
+    let init = Number(data.init.replaceAll("-", ""));
+    let end = Number(data.end.replaceAll("-", ""));
+    if (init < end) {
+      let total = end - init;
+      setPrice(total * info.price);
+    }
+  };
 
   const submit = (data) => {
     let init = Number(data.init.replaceAll("-", ""));
@@ -21,8 +32,8 @@ const DataRange = ({ info }) => {
     }
   };
   return (
-    <>
-      <div className="flex flex-row justify-center h-[18rem] bg-[#ebebeb] rounded-3xl py-6  px-2 w-[24rem] max-[1000px]:w-full hover:shadow-2xl hover:scale-[1.02] duration-300  ">
+    <div className="h-[18rem] bg-[#ebebeb] rounded-3xl py-6  px-2 w-[24rem] max-[1000px]:w-full hover:shadow-2xl hover:scale-[1.02] duration-300">
+      <div className="flex flex-row justify-center ">
         <form
           onSubmit={handleSubmit(submit)}
           className="form-control w-full max-[1000px]:w-[24rem]"
@@ -52,16 +63,22 @@ const DataRange = ({ info }) => {
             </div>
           </div>
           <div className="flex flex-col">
+            <div className="flex">
+              <button className="btn bg-[#A780ff] hover:bg-[#906be7] border-transparent hover:border-transparent text-white">
+                Calcular
+              </button>
+            </div>
+
             <span className=" text-red-600 text-lg">
               Total: {result <= 0 ? "fecha invalida" : result}
             </span>
-            <button className="btn bg-[#A780ff] hover:bg-[#906be7] border-transparent hover:border-transparent text-white">
-              Reservar
-            </button>
           </div>
         </form>
       </div>
-    </>
+      <button className="btn bg-[#A780ff] hover:bg-[#906be7] border-transparent hover:border-transparent text-white">
+        Reservar
+      </button>
+    </div>
   );
 };
 
