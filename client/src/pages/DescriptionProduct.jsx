@@ -6,7 +6,7 @@ import Map from "../components/productDescription/Map";
 import Footer from "../components/footer/Footer";
 import { useParams } from "react-router-dom";
 import getProduct from "../services/getProduct.services";
-import NavBar from "../components/navBar/NavBar";
+import NavBar from "../components/navBar/navBar";
 import DataRange from "../components/dataRange/DataRange";
 import DataDescriptionRent from "../components/dataRent/DataDescriptionRent";
 
