@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const DataRange = ({ info }) => {
   const [result, setResult] = useState();
-  const [price, setPrice] = useState();
+  const [dataGlobal, setDataGlobal] = useState();
+
+  const users = useSelector((state) => state.user);
 
   const {
     register,
@@ -12,34 +15,50 @@ const DataRange = ({ info }) => {
   } = useForm();
 
   const toltalPrice = (data) => {
-    let init = Number(data.init.replaceAll("-", ""));
-    let end = Number(data.end.replaceAll("-", ""));
-    if (init < end) {
-      let total = end - init;
-      setPrice(total * info.price);
-    }
-  };
+    setDataGlobal(data);
 
-  const submit = (data) => {
     let init = Number(data.init.replaceAll("-", ""));
     let end = Number(data.end.replaceAll("-", ""));
 
     if (init < end) {
       let total = end - init;
       setResult(total * info.price);
+      console.log(result);
     } else {
       setResult(0);
     }
   };
+
+  // const dataBooking = (data) => {
+  //   let init = Number(data.init.replaceAll("-", ""));
+  //   let end = Number(data.end.replaceAll("-", ""));
+
+  //   let totalDay = end - init;
+  //   const totalPrice = totalDay * data.price;
+
+  //   const booking = {
+  //     init: data.init,
+  //     end: data.end,
+  //     totalDay,
+  //     totalPrice,
+  //     productId: data._id,
+  //     userId: users.id,
+  //     price: data.price,
+  //   };
+
+  //   if (init < end) {
+  //     console.log(booking);
+  //   }
+  // };
+
   return (
-    <div className="h-[18rem] bg-[#ebebeb] rounded-3xl py-6  px-2 w-[24rem] max-[1000px]:w-full hover:shadow-2xl hover:scale-[1.02] duration-300">
-      <div className="flex flex-row justify-center ">
+    <div className="h-[22rem] bg-[#ebebeb] rounded-3xl py-6  px-2 w-[24rem] max-[1000px]:w-full hover:shadow-2xl hover:scale-[1.02] duration-300">
+      <div className="flex flex-col justify-center ">
         <form
-          onSubmit={handleSubmit(submit)}
+          onSubmit={handleSubmit(toltalPrice)}
           className="form-control w-full max-[1000px]:w-[24rem]"
         >
           <span className=" text-lime-700 text-lg">
-            {" "}
             Precio por dia: {info.price} US
           </span>
           <div className=" flex justify-between w-full my-4">
@@ -69,15 +88,15 @@ const DataRange = ({ info }) => {
               </button>
             </div>
 
-            <span className=" text-red-600 text-lg">
-              Total: {result <= 0 ? "fecha invalida" : result}
+            <span className="my-3 text-red-600 text-lg">
+              Total: {result <= 0 ? "fecha invalida" : <span>{result}</span>}
             </span>
           </div>
         </form>
+        <button className="btn w-[23rem] max-[1000px]:w-[24rem] mb-4 bg-[#A780ff] hover:bg-[#906be7] border-transparent hover:border-transparent text-white">
+          Reservar
+        </button>
       </div>
-      <button className="btn bg-[#A780ff] hover:bg-[#906be7] border-transparent hover:border-transparent text-white">
-        Reservar
-      </button>
     </div>
   );
 };
