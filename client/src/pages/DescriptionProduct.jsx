@@ -48,7 +48,7 @@ const DescriptionProduct = () => {
               <div className=" w-full">
                 <DataDescriptionRent data={data} />
               </div>
-              <div className="">
+              <div>
                 <DataRange info={data} />
               </div>
             </div>
