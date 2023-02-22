@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://tudestinoapp-production.up.railway.app/api/products")
+      .get("https://tudestinoapp-api-production.up.railway.app/api/products")
       .then((res) => {
         let result;
 

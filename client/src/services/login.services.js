@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "https://tudestinoapp-production.up.railway.app/api/auth/login";
+const URL = "https://tudestinoapp-api-production.up.railway.app/api/auth/login";
 
 const fetchLogin = async (data) => {
   try {
