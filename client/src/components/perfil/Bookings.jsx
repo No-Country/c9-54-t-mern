@@ -1,7 +1,29 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import hote from "../../assets/hotel.jpg";
+import { useSelector } from "react-redux";
+
+const URL = "https://tudestinoapp-api-production.up.railway.app/api/payment/";
+const URLP = "https://tudestinoapp-api-production.up.railway.app/api/products/";
 
 const Bookings = () => {
+  const [infoBooking, setInfoBooking] = useState();
+
+  const userLocal = JSON.parse(localStorage.getItem("user"));
+  const users = useSelector((state) => state.user);
+
+  const fetch = () => {
+    axios.get(URL).then((resp) => {
+      const data = resp.data.filter((user) => user.idUser === users.id);
+      setInfoBooking(data);
+      console.log(data);
+    });
+  };
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
   return (
     <div className="overflow-x-auto w-full container mx-auto my-2 rounded-xl border-2 border-[#100a1866] shadow-2xl">
       <table className="table  w-full">
@@ -22,6 +44,27 @@ const Bookings = () => {
             </th>
             <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
               Direccion
+            </th>
+            <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
+              Total
+            </th>
+            <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
+              Total
+            </th>
+            <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
+              Total
+            </th>
+            <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
+              Total
+            </th>
+            <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
+              Total
+            </th>
+            <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
+              Total
+            </th>
+            <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
+              Total
             </th>
             <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
               Total
