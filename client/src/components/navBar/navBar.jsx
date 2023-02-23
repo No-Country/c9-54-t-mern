@@ -63,10 +63,6 @@ const NavBar = () => {
 
   const search = () => setHandleSearch(!handleSearch);
 
-  const navigateDashboard = () => {
-    navigate("/cambiar ruta conectar con dashboard");
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(setSearch(dataSearch));
@@ -128,7 +124,7 @@ const NavBar = () => {
       </form>
       <div className="flex-none gap-2">
         <div className="p-4">
-          <span className="font-bold">
+          <span className="font-bold cursor-default">
             {users.username ? (
               <b>
                 <p className="text-[#A780ff]">Bienvenid@</p> {users.username}
@@ -155,7 +151,9 @@ const NavBar = () => {
                 </li>
                 {users.isAdmin === true && (
                   <li className="hover:bg-[#ebebeb]">
-                    <a onClick={navigateDashboard}>Panel administrador</a>
+                    <a href="https://tudestinoapp-dashboard.vercel.app/">
+                      Panel administrador
+                    </a>
                   </li>
                 )}
                 <li className="hover:bg-[#ebebeb]">
