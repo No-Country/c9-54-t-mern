@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import CardsFilter from "../components/cardsFilter/CardsFilter";
 import FilterBar from "../components/filterBar/FilterBar";
 import Footer from "../components/footer/Footer";
 import Slider from "../components/slider/Slider";
@@ -12,7 +13,11 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredProducts, setFilteredProducts] = useState();
-
+ /* const [cardFilter, setCardFilter] = useState({
+    country: "",
+    city: "",
+  });*/
+  
   const search = useSelector((state) => state.search);
 
   useEffect(() => {
@@ -45,17 +50,53 @@ const Home = () => {
 
   const updateFilter = (filter) => {
     setFilter(filter);
-  };
 
+  };
+  /*const applyFilter = () => {
+    setCardFilter({
+      country: document.getElementById("selectCountry").value,
+      city: document.getElementById("selectCity").value,
+    })
+  }*/
+
+  
   useEffect(() => {
     if (filter === "all") {
       setFilteredProducts(products);
     } else {
       setFilteredProducts(
         products.filter((product) => product.productType === filter)
-      );
-    }
-  }, [filter]);
+        );
+      }
+    }, [filter]);
+
+   /*useEffect(() => {
+      if ((cardFilter.country === "" && cardFilter.city === "" && filter === "all") || (cardFilter.country === "Pais" && cardFilter.city === "Ciudad" && filter === "all") ) {
+        setFilteredProducts(products);
+      } else if (filter === "all"){
+        setFilteredProducts(
+          products.filter((product) => product.country === cardFilter.country && product.city === cardFilter.city))
+      } else{
+        setFilteredProducts(
+          products.filter((product) => product.country === cardFilter.country && product.city === cardFilter.city && product.productType === filter)
+          );
+        
+      }
+        
+      }, [cardFilter]);*/
+  
+
+  useEffect(() => {
+    axios
+      .get("https://tudestinoapp-production.up.railway.app/api/products")
+      .then((res) => {
+        setProducts(res.data);
+        setFilteredProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
@@ -70,6 +111,7 @@ const Home = () => {
           </div>
         </div>
         <div className="container mx-auto relative min-h-[16rem]">
+          {/*<CardsFilter applyFilter={applyFilter}></CardsFilter>*/}
           <ProductContainer>
             {products.length > 0 ? (
               filteredProducts?.map((prod, index) => (
