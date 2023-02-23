@@ -7,6 +7,8 @@ import Footer from "../components/footer/Footer";
 import { useParams } from "react-router-dom";
 import getProduct from "../services/getProduct.services";
 import NavBar from "../components/navBar/NavBar";
+import DataRange from "../components/dataRange/DataRange";
+import DataDescriptionRent from "../components/dataRent/DataDescriptionRent";
 
 const DescriptionProduct = () => {
   const [data, setData] = useState();
@@ -41,6 +43,16 @@ const DescriptionProduct = () => {
                 <SlideDescriptionProduct data={data} />
               </div>
             </div>
+
+            <div className="flex gap-3  mx-auto max-[800px]:p-2 max-[1000px]:flex-col max-[800px]:w-full max-[1200px]:w-5/6 w-3/4 my-5">
+              <div className=" w-full">
+                <DataDescriptionRent data={data} />
+              </div>
+              <div>
+                <DataRange info={data} />
+              </div>
+            </div>
+
             <div className="mx-auto max-[800px]:p-2 max-[800px]:w-full max-[1200px]:w-5/6 w-3/4 mb-5">
               <Map data={data} />
             </div>

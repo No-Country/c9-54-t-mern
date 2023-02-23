@@ -6,6 +6,7 @@ import fetchLogin from "../../services/login.services";
 const FormLogin = () => {
   const [resultFech, setResultFech] = useState();
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -17,7 +18,10 @@ const FormLogin = () => {
   const onSubmit = async (data) => {
     const result = await fetchLogin(data);
     setResultFech(result);
-    console.log(result);
+
+    if (result) {
+      localStorage.setItem("user", JSON.stringify(result));
+    }
 
     if (typeof result === "object") {
       navigate("/home");

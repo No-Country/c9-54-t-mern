@@ -13,22 +13,19 @@ const filterBar = ({ updateFilter }) => {
         <p className="text-slate-900">Todos</p>
         <div className={styles.line} />
       </button>
-      <button className={styles.filter} onClick={() => updateFilter("house")}>
-        <img src={house} alt="Casas" />
-        <p className="text-slate-900">Casas</p>
-        <div className={styles.line} />
-      </button>
       <button className={styles.filter} onClick={() => updateFilter("bedroom")}>
         <img src={bedroom} alt="Habitaciones"></img>
         <p className="text-slate-900">Habitaciones</p>
         <div className={styles.line} />
       </button>
-      <button
-        className={styles.filter}
-        onClick={() => updateFilter("apartment")}
-      >
+      <button className={styles.filter} onClick={() => updateFilter("apartment")}>
         <img src={apartment} alt="Apartamentos"></img>
         <p className="text-slate-900">Apartamentos</p>
+        <div className={styles.line} />
+      </button>
+      <button className={styles.filter} onClick={() => updateFilter("house")}>
+        <img src={house} alt="Casas" />
+        <p className="text-slate-900">Casas</p>
         <div className={styles.line} />
       </button>
     </div>
