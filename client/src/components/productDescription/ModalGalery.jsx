@@ -6,7 +6,7 @@ const ModalGalery = ({ data }) => {
   return (
     <>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal">
+      <div className="modal z-[9999]">
         <div
           className={`${style.scroll} modal-box  p-0 relative bg-transparent`}
         >
@@ -40,9 +40,3 @@ const ModalGalery = ({ data }) => {
 };
 
 export default ModalGalery;
-
-/* 
-
-
-
-*/

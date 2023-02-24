@@ -9,6 +9,7 @@ import getProduct from "../services/getProduct.services";
 import NavBar from "../components/navBar/NavBar";
 import DataRange from "../components/dataRange/DataRange";
 import DataDescriptionRent from "../components/dataRent/DataDescriptionRent";
+import ModalDataRange from "../components/dataRange/ModalDataRange";
 
 const DescriptionProduct = () => {
   const [data, setData] = useState();
@@ -48,8 +49,16 @@ const DescriptionProduct = () => {
               <div className=" w-full">
                 <DataDescriptionRent data={data} />
               </div>
-              <div>
+              <div className="max-[1000px]:hidden">
                 <DataRange info={data} />
+              </div>
+              <div className="min-[1000px]:hidden">
+                <label
+                  htmlFor="my-modal-5"
+                  className="btn w-full mb-2 bg-[#A780ff] hover:bg-[#906be7] border-transparent hover:border-transparent text-white"
+                >
+                  Reservar
+                </label>
               </div>
             </div>
 
@@ -57,6 +66,7 @@ const DescriptionProduct = () => {
               <Map data={data} />
             </div>
             <ModalGalery data={data} />
+            <ModalDataRange data={data} />
           </div>
           <div>
             <Footer />
