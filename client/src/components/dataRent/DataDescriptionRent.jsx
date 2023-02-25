@@ -4,10 +4,10 @@ const DataDescriptionRent = ({ data }) => {
   return (
     <>
       <div className="rounded-3xl bg-[#ebebeb] mb-2 h-full w-full p-4">
-        <h3 className="mb-3 font-bold text-xl">Descripcion</h3>
+        <h3 className="mb-3 font-bold text-xl">Descripción</h3>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-earth-americas"></i>
+            <i className="fa-sharp fa-solid fa-earth-americas"></i>
           </div>
           <h3 className="mx-3">
             <span className=" font-bold"> Pais : </span>
@@ -16,7 +16,7 @@ const DataDescriptionRent = ({ data }) => {
         </div>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-city"></i>
+            <i className="fa-sharp fa-solid fa-city"></i>
           </div>
 
           <h3 className="mx-3">
@@ -26,7 +26,7 @@ const DataDescriptionRent = ({ data }) => {
         </div>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-map-location-dot"></i>
+            <i className="fa-sharp fa-solid fa-map-location-dot"></i>
           </div>
           <h3 className="mx-3">
             <span className=" font-bold"> Dirección : </span>
@@ -35,7 +35,7 @@ const DataDescriptionRent = ({ data }) => {
         </div>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-people-group"></i>
+            <i className="fa-sharp fa-solid fa-people-group"></i>
           </div>
           <h3 className="mx-3">
             <span className=" font-bold"> Maximo de personas : </span>
@@ -44,7 +44,7 @@ const DataDescriptionRent = ({ data }) => {
         </div>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-person-booth"></i>
+            <i className="fa-sharp fa-solid fa-person-booth"></i>
           </div>
           <h3 className="mx-3">
             <span className=" font-bold"> Numero de Habitaciones : </span>
@@ -53,7 +53,7 @@ const DataDescriptionRent = ({ data }) => {
         </div>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-toilet"></i>
+            <i className="fa-sharp fa-solid fa-toilet"></i>
           </div>
           <h3 className="mx-3">
             <span className=" font-bold"> Numero de Baños : </span>
@@ -62,7 +62,7 @@ const DataDescriptionRent = ({ data }) => {
         </div>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-dumbbell"></i>
+            <i className="fa-sharp fa-solid fa-dumbbell"></i>
           </div>
           <h3 className="mx-3">
             <span className=" font-bold"> Gym : </span>
@@ -71,7 +71,7 @@ const DataDescriptionRent = ({ data }) => {
         </div>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-person-swimming"></i>
+            <i className="fa-sharp fa-solid fa-person-swimming"></i>
           </div>
           <h3 className="mx-3">
             <span className=" font-bold"> Piscina : </span>
@@ -80,7 +80,7 @@ const DataDescriptionRent = ({ data }) => {
         </div>
         <div className="flex">
           <div>
-            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+            <i className="fa-regular fa-file-lines"></i>
           </div>
           <p className="mx-3">
             <span className=" font-bold"> Reseña : </span>
