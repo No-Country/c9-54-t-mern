@@ -118,7 +118,7 @@ const NavBar = () => {
             onClick={cleanSearch}
             className="cursor-pointer font-bold hover:text-[#A780ff]"
           >
-            limpiar
+            <i className="fa-solid fa-circle-xmark text-3xl"></i>
           </p>
         )}
       </form>
@@ -151,7 +151,10 @@ const NavBar = () => {
                 </li>
                 {users.isAdmin === true && (
                   <li className="hover:bg-[#ebebeb]">
-                    <a href="https://tudestinoapp-dashboard.vercel.app/">
+                    <a
+                      target={"_blank"}
+                      href="https://tudestinoapp-dashboard.vercel.app/"
+                    >
                       Panel administrador
                     </a>
                   </li>
