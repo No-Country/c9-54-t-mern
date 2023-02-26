@@ -1,4 +1,5 @@
-import mercadopago from "mercadopago";
+import config from "../config/env.config.js";
+//import mercadopago from "mercadopago";
 import Payment from "../models/payment.model.js";
 import axios from "axios";
 
