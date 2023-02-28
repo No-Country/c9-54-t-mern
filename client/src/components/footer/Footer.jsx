@@ -1,5 +1,9 @@
 import React from "react";
 import logo from "../../assets/logo.png";
+import logocopy from "../../assets/logocopy.png"
+import logofb from "../../assets/logofb.png"
+import logoig from "../../assets/logoig.png"
+import logott from "../../assets/logott.png"
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -8,6 +12,8 @@ const Footer = () => {
   const navigatePage = (title) => navigate(`/page/${title}`);
 
   const navigateHome = () => navigate("/home");
+
+  const navigateSobrenos = () => navigate("/Sobrenosotros");
 
   return (
     <>
@@ -44,7 +50,7 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <span className="text-slate-700 font-bold">tu destino app</span>
+          <span className="text-slate-700 font-bold">Tu destino app</span>
           <a
             onClick={() => navigatePage("Luchamos contra la discriminación")}
             className="link text-slate-600 link-hover"
@@ -80,7 +86,7 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <span className="text-slate-700 font-bold">comunidad</span>
+          <span className="text-slate-700 font-bold">Comunidad</span>
           <a
             onClick={() =>
               navigatePage(
@@ -107,11 +113,23 @@ const Footer = () => {
           >
             Como brindar servicios de anfitrión de forma responsable
           </a>
-          <div onClick={navigateHome} className="w-56 mt-4 cursor-pointer">
-            <img src={logo} alt="logo" />{" "}
-          </div>
+
         </div>
+
       </footer>
+      <div className="flex px-10 max-[700px]:flex-col justify-evenly items-center py-6 gap-5">
+        <div onClick={navigateHome} className="w-40 cursor-pointer">
+          <img src={logo} alt="logo" />{" "}
+        </div>
+        <div className="flex items-center w-[40%] justify-center">
+         <img className="w-5" src={logocopy} alt="logocopy" />{" "} <span className="text-sm ">2023 TuDestinoapp<span className="max-[700px]:hidden">, todos los derechos reservados.</span></span>
+        </div>
+        <div className="flex w-36 gap-2">
+         <a href="https://es-la.facebook.com/" target={"_blank"}><img className="w-10" src={logofb} alt="logofb" />{" "}</a>
+         <a href="https://www.instagram.com/" target={"_blank"}><img className="w-10" src={logoig} alt="logoig" />{" "}</a>
+         <a href="https://twitter.com/?lang=es" target={"_blank"}><img className="w-10" src={logott} alt="logott" />{" "}</a>
+        </div>
+      </div>
     </>
   );
 };

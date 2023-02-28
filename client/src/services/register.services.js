@@ -1,6 +1,6 @@
 import axios from "axios";
-const URL = "https://tudestinoapp-api-production.up.railway.app/api/auth/register";
-
+const URL =
+  "https://tudestinoapp-api-production.up.railway.app/api/auth/register";
 
 const fetchRegister = async (data) => {
   try {

@@ -63,10 +63,6 @@ const NavBar = () => {
 
   const search = () => setHandleSearch(!handleSearch);
 
-  const navigateDashboard = () => {
-    navigate("/cambiar ruta conectar con dashboard");
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(setSearch(dataSearch));
@@ -83,6 +79,8 @@ const NavBar = () => {
   const onSearch = (e) => {
     setDataSearch(e.target.value);
   };
+
+  console.log(dataSearch);
 
   return (
     <div className="navbar bg-[#ebebeb] justify-between px-10 max-[800px]:px-3">
@@ -122,13 +120,13 @@ const NavBar = () => {
             onClick={cleanSearch}
             className="cursor-pointer font-bold hover:text-[#A780ff]"
           >
-            limpiar
+            <i className="fa-solid fa-circle-xmark text-3xl"></i>
           </p>
         )}
       </form>
       <div className="flex-none gap-2">
         <div className="p-4">
-          <span className="font-bold">
+          <span className="font-bold cursor-default">
             {users.username ? (
               <b>
                 <p className="text-[#A780ff]">Bienvenid@</p> {users.username}
@@ -155,7 +153,12 @@ const NavBar = () => {
                 </li>
                 {users.isAdmin === true && (
                   <li className="hover:bg-[#ebebeb]">
-                    <a onClick={navigateDashboard}>Panel administrador</a>
+                    <a
+                      target={"_blank"}
+                      href="https://tudestinoapp-dashboard.vercel.app/"
+                    >
+                      Panel administrador
+                    </a>
                   </li>
                 )}
                 <li className="hover:bg-[#ebebeb]">

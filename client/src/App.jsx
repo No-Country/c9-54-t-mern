@@ -9,9 +9,13 @@ import DescriptionProduct from "./pages/DescriptionProduct";
 import MyProfile from "./pages/MyProfile";
 import Error from "./pages/Error";
 import { useSelector } from "react-redux";
+import CancelledBooking from "./pages/CancelledBooking";
+import CompletedBooking from "./pages/CompletedBooking";
+import MessageDelete from "./components/perfil/MessageDelete";
 
 function App() {
   const user = useSelector((state) => state.user);
+  const local = JSON.parse(localStorage.getItem("user"));
 
   return (
     <>
@@ -21,6 +25,8 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/page/:idPage" element={<FooterPageInformation />} />
+        <Route exact path="/cancelled" element={<CancelledBooking />} />
+        <Route exact path="/completed" element={<CompletedBooking />} />
         <Route
           exact
           path="/product/:productId"
@@ -29,9 +35,14 @@ function App() {
         <Route
           exact
           path="/profile"
-          element={user.username !== "" ? <MyProfile /> : <Error />}
+          element={
+            local !== null || user.username !== "" ? <MyProfile /> : <Error />
+          }
         />
+
         <Route exact path="*" element={<Error />} />
+
+        <Route exact path="message" element={<MessageDelete />} />
       </Routes>
     </>
   );
