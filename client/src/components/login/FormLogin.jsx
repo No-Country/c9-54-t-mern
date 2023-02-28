@@ -5,6 +5,7 @@ import fetchLogin from "../../services/login.services";
 
 const FormLogin = () => {
   const [resultFech, setResultFech] = useState();
+  const [active, setActive] = useState(true);
   const navigate = useNavigate();
 
   const {
@@ -19,11 +20,15 @@ const FormLogin = () => {
     const result = await fetchLogin(data);
     setResultFech(result);
 
-    if (result) {
+    if (result.details.isActive === false) {
+      setActive(false);
+    }
+
+    if (result.details.isActive === true) {
       localStorage.setItem("user", JSON.stringify(result));
     }
 
-    if (typeof result === "object") {
+    if (typeof result === "object" && result.details.isActive === true) {
       navigate("/home");
     }
   };
@@ -44,7 +49,7 @@ const FormLogin = () => {
             })}
           />
           {errors.username && (
-            <p className="text-red-500 text-xs" role="alert">
+            <p className="text-red-500 text-xs   " role="alert">
               {errors.username?.message}
             </p>
           )}
@@ -76,11 +81,12 @@ const FormLogin = () => {
             </a>
           </label>
         </div>
-        {resultFech === 404 && (
-          <p className="pl-1 text-xs text-rose-500">
-            el usuario no se encuentra registrado
-          </p>
-        )}
+        {resultFech === 404 ||
+          (active === false && (
+            <p className="pl-1 text-xs text-rose-500">
+              el usuario no se encuentra registrado
+            </p>
+          ))}
         {resultFech === 400 && (
           <p className="pl-1 text-xs text-rose-500">
             el usuario o contraseña son incorrectos
