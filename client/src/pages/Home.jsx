@@ -24,14 +24,17 @@ const Home = () => {
       .then((res) => {
         let result;
 
+        result = res.data.filter((item) => item.isActive === true);
+
         setTimeout(() => {
           setIsLoading(false);
         }, 1700);
-
         if (search !== "") {
-          result = res.data.filter(
-            (item) => item.country.toLowerCase() === search.toLowerCase()
-          );
+          result = res.data
+            .filter((item) => item.isActive === true)
+            .filter(
+              (item) => item.country.toLowerCase() === search.toLowerCase()
+            );
 
           if (result.length > 0) {
             setProducts(result);
@@ -41,8 +44,8 @@ const Home = () => {
             setFilteredProducts([]);
           }
         } else {
-          setProducts(res.data);
-          setFilteredProducts(res.data);
+          setProducts(result);
+          setFilteredProducts(result);
         }
       })
       .catch((err) => {
