@@ -80,6 +80,8 @@ const NavBar = () => {
     setDataSearch(e.target.value);
   };
 
+  console.log(dataSearch);
+
   return (
     <div className="navbar bg-[#ebebeb] justify-between px-10 max-[800px]:px-3">
       <div onClick={navigateHome}>
