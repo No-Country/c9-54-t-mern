@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
-const URL = "https://tudestino.onrender.com/api/payment";
+//const URL = "https://tudestino.onrender.com/api/payment";
+const URL = "https://paimentpaypal-production.up.railway.app/api/payment";
 const URLP = "https://tudestinoapp-api-production.up.railway.app/api/products/";
-const URLPRUE = "http://localhost:5000/api/payment";
 
 const DataRange = ({ info }) => {
   const [result, setResult] = useState();
@@ -68,7 +68,6 @@ const DataRange = ({ info }) => {
       if (init < end && users.username !== "") {
         setLoading(true);
         const respBooking = await axios.post(URL, { totalPrice });
-        console.log(respBooking.data);
 
         if (respBooking.data.paypal.status === "CREATED") {
           setRedirect(respBooking.data.paypal?.links[1]?.href);

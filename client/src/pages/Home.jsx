@@ -7,19 +7,26 @@ import ProductContainer from "../components/sliderCard/ProductContainer";
 import ProductsCard from "../components/sliderCard/ProductsCard";
 import NavBar from "../components/navBar/navBar";
 import { useSelector } from "react-redux";
+import Squeleton from "./Squeleton";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredProducts, setFilteredProducts] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const search = useSelector((state) => state.search);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get("https://tudestinoapp-api-production.up.railway.app/api/products")
       .then((res) => {
         let result;
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1700);
 
         if (search !== "") {
           result = res.data.filter(
@@ -57,28 +64,50 @@ const Home = () => {
     }
   }, [filter]);
 
+  const squeletonArray = [1, 2, 3, 4, 5];
+
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <div>
         <Slider />
         <div className="sticky top-0 z-10 bg-[#ebebeb] pt-4">
-          <div className="container mx-auto ">
+          <div className="container mx-auto">
             <NavBar />
           </div>
           <div className="container mx-auto border-b-2 mt-6">
             <FilterBar updateFilter={updateFilter} />
           </div>
+          {search !== "" && (
+            <div className="container mx-auto border-b-2 cursor-default">
+              <div className="text-lg breadcrumbs mx-10">
+                <ul>
+                  <li>Disponible en</li>
+                  <li className="text-[#A780ff]">{search}</li>
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
         <div className="container mx-auto relative min-h-[16rem]">
           <ProductContainer>
-            {products.length > 0 ? (
-              filteredProducts?.map((prod, index) => (
-                <ProductsCard key={index} image={prod.image} data={prod} />
-              ))
+            {isLoading === false ? (
+              <>
+                {products.length > 0 ? (
+                  filteredProducts?.map((prod, index) => (
+                    <ProductsCard key={index} image={prod.image} data={prod} />
+                  ))
+                ) : (
+                  <h2 className="p-5 text-[2rem] text-slate-400 absolute top-0 left-[1rem] max-[795px]:left-0 uppercase">
+                    No se encontraron coincidencias{" "}
+                  </h2>
+                )}
+              </>
             ) : (
-              <h2 className="p-5 text-[2rem] text-slate-400 absolute top-0 left-[1rem] max-[795px]:left-0 uppercase">
-                No se encontraron coincidencias{" "}
-              </h2>
+              squeletonArray?.map((prod, index) => (
+                <div key={index}>
+                  <Squeleton />
+                </div>
+              ))
             )}
           </ProductContainer>
         </div>

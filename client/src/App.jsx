@@ -11,6 +11,7 @@ import Error from "./pages/Error";
 import { useSelector } from "react-redux";
 import CancelledBooking from "./pages/CancelledBooking";
 import CompletedBooking from "./pages/CompletedBooking";
+import MessageDelete from "./components/perfil/MessageDelete";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -38,7 +39,8 @@ function App() {
             local !== null || user.username !== "" ? <MyProfile /> : <Error />
           }
         />
-        <Route path="*" element={<Error />} />
+        <Route exact path="message" element={<MessageDelete />} />
+        <Route exact path="*" element={<Error />} />
       </Routes>
     </>
   );
