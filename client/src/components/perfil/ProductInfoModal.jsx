@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { red } from "tailwindcss/colors";
 
 const URLP = "https://tudestinoapp-api-production.up.railway.app/api/products/";
 
@@ -27,7 +26,7 @@ const ProductInfoModal = ({ openModal, setopenModal, productById }) => {
             className="fa-sharp fa-solid fa-circle-xmark absolute right-4 top-4 text-2xl cursor-pointer"
           ></i>
           <div className="m-4">
-            <h2 class="text-slate-800 text-2xl capitalize">
+            <h2 className="text-slate-800 text-2xl capitalize">
               {infoProduct?.title}
               <span className="text-sm underline"> {infoProduct?.country}</span>
               <span className="text-sm underline"> {infoProduct?.city}</span>
@@ -40,7 +39,7 @@ const ProductInfoModal = ({ openModal, setopenModal, productById }) => {
               />
             </div>
             <div>
-              <h3 className="mb-3 font-bold text-xl">Descripción</h3>
+              <h3 className="my-3 font-bold text-xl">Descripción</h3>
               <div className="flex my-1 ">
                 <div>
                   <i className="fa-sharp fa-solid fa-earth-americas"></i>

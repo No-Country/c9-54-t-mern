@@ -39,10 +39,8 @@ function App() {
             local !== null || user.username !== "" ? <MyProfile /> : <Error />
           }
         />
-
-        <Route exact path="*" element={<Error />} />
-
         <Route exact path="message" element={<MessageDelete />} />
+        <Route exact path="*" element={<Error />} />
       </Routes>
     </>
   );
