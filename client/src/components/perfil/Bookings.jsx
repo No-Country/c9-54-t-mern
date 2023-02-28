@@ -23,11 +23,8 @@ const Bookings = () => {
     axios.get(URL).then((resp) => {
       const data = resp.data.filter((user) => user.idUser === users.id);
       setInfoBooking(data);
-      // console.log(data);
     });
   };
-
-  console.log(infoBooking);
 
   useEffect(() => {
     fetch();
@@ -35,7 +32,7 @@ const Bookings = () => {
 
   return (
     <>
-      <div className="overflow-x-auto w-full container mx-auto my-2 rounded-xl border-2 border-[#100a1866] shadow-2xl">
+      <div className="overflow-x-auto w-[80%] container mx-auto mt-2 mb-10 rounded-xl border-2 border-[#b4b4b466] shadow-2xl">
         <table className="table  w-full">
           {/* head */}
           <thead className="bg-[#0a0a0a]">
@@ -43,27 +40,16 @@ const Bookings = () => {
               <th className=" border-1 border-[#cbc7c7db]  bg-[#ebebeb]">
                 <label></label>
               </th>
-              <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
-                Nombre
+              <th className="bg-[#ebebeb] text-[#394e6a]">Image</th>
+              <th className="bg-[#ebebeb] text-[#394e6a] text-center">
+                Reserva
               </th>
-              <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
-                Fecha inicio
-              </th>
-              <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
-                Fecha Final
-              </th>
-              <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
-                Dias
-              </th>
-              <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
-                Precio
-              </th>
-              <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
-                Total
-              </th>
-              <th className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
-                Info
-              </th>
+              <th className="bg-[#ebebeb] text-[#394e6a]">Fecha inicio</th>
+              <th className="bg-[#ebebeb] text-[#394e6a]">Fecha Final</th>
+              <th className="bg-[#ebebeb] text-[#394e6a]">Dias</th>
+              <th className="bg-[#ebebeb] text-[#394e6a]">Precio</th>
+              <th className="bg-[#ebebeb] text-[#394e6a]">Total</th>
+              <th className="bg-[#ebebeb] text-[#394e6a] text-center">Info</th>
             </tr>
           </thead>
           <tbody>
@@ -87,6 +73,9 @@ const Bookings = () => {
                       </div>
                     </div>
                   </div>
+                </td>
+                <td className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
+                  {booking.dateRegister}
                 </td>
                 <td className=" border-[#9b9898db] bg-[#ebebeb] text-[#394e6a]">
                   {booking.dateInit}

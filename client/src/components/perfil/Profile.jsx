@@ -42,7 +42,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className="tabs bg-secondary-content tabs-boxed  gap-3 bg-transparent w-[90%] mx-auto mt-8">
+      <div className="tabs bg-secondary-content tabs-boxed  gap-3 bg-transparent w-[80%] mx-auto mt-8">
         <button
           onClick={change}
           className={
@@ -65,7 +65,7 @@ const Profile = () => {
         </button>
       </div>
       {select ? (
-        <div className="w-[55%] m-auto  flex gap-2 flex-col my-4">
+        <div className="w-[80%] m-auto  flex gap-2 flex-col my-4">
           <h1 className="p-4 text-3xl text-black text-center">
             Información personal
           </h1>
@@ -131,7 +131,7 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full h-[300px] border border-[#cfccccdb]   flex  flex-col justify-between  m-1 rounded shadow-md ">
+            <div className="w-full h-[300px] border border-[#cfccccdb] flex  flex-col justify-evenly mt-7 mb-2 rounded shadow-md ">
               <div className="p-6 text-xl text-black">
                 <h2>Información de contacto</h2>
               </div>
@@ -173,7 +173,7 @@ const Profile = () => {
         </div>
       ) : (
         <>
-          <h1 className="text-3xl text-black container m-auto mt-8 mb-4 ">
+          <h1 className="text-3xl text-black container m-auto mt-8 mb-4 w-[80%]">
             Tus reservas
           </h1>
           <Bookings />

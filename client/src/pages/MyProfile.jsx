@@ -7,7 +7,9 @@ const MyProfile = () => {
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <div>
-        <NavBar />
+        <div className="sticky top-0 z-30 bg-[#ebebeb]">
+          <NavBar />
+        </div>
         <Profile />
       </div>
       <div>
