@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Navigate, useNavigate } from "react-router-dom";
 
 const FormUpdate = ({ open, setOpen, edit, setEdit }) => {
   const { register, handleSubmit, reset } = useForm();
   const [alertUpdate, setAlertUpdate] = useState(false);
+  const [alertNoyUpdate, setAlertNotUpdate] = useState(false);
 
-  const navigate = useNavigate();
   const close = () => {
     setOpen(!open);
   };
@@ -16,40 +15,46 @@ const FormUpdate = ({ open, setOpen, edit, setEdit }) => {
 
   const userUpdate = async (id, data) => {
     //carga imagen
-
     const img = new FormData();
     img.append("upload_preset", "myuploads");
     img.append("file", data.image[0]);
-    const uploadRes = await axios.post(
-      "https://api.cloudinary.com/v1_1/djdp4cavt/image/upload",
-      img
-    );
 
-    const url = uploadRes.data?.url;
+    let uploadRes;
+    let url;
 
-    let newData;
-    if (url !== undefined) {
-      newData = {
-        ...data,
-        image: url,
-      };
+    if (data.image.length > 0) {
+      uploadRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/djdp4cavt/image/upload",
+        img
+      );
+      url = uploadRes.data.url;
     } else {
-      newData = data;
+      url = edit.image;
     }
+
+    const newData = {
+      ...data,
+      image: url,
+    };
 
     const urlUpdate = `https://tudestinoapp-api-production.up.railway.app/api/users/${id}`;
     axios
       .patch(urlUpdate, newData)
       .then((res) => {
-        console.log(res.data);
-
         setAlertUpdate(true);
+
         setTimeout(() => {
           setAlertUpdate(false);
           setOpen(!open);
         }, 3000);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setAlertNotUpdate(true);
+
+        setTimeout(() => {
+          setAlertNotUpdate(false);
+        }, 3000);
+      });
   };
 
   useEffect(() => {
@@ -135,7 +140,7 @@ const FormUpdate = ({ open, setOpen, edit, setEdit }) => {
                   actualizar
                 </button>
               ) : (
-                <div className="alert alert-info shadow-lg">
+                <div className="alert alert-info shadow-lg bg-[#7ec0d4] text-white font-bold">
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +155,30 @@ const FormUpdate = ({ open, setOpen, edit, setEdit }) => {
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       ></path>
                     </svg>
-                    <span>actualizado</span>
+                    <span>Actualizado con éxito</span>
+                  </div>
+                </div>
+              )}
+            </>
+
+            <>
+              {alertNoyUpdate === true && (
+                <div className="alert alert-info shadow-lg bg-[#e7886b] text-white font-bold">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      className="stroke-current flex-shrink-0 w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    <span>No actualizado debes modificar algún campo</span>
                   </div>
                 </div>
               )}

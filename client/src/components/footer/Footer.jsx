@@ -1,10 +1,10 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import logocopy from "../../assets/logocopy.png"
-import logofb from "../../assets/logofb.png"
-import logoig from "../../assets/logoig.png"
-import logott from "../../assets/logott.png"
-import { useNavigate } from "react-router-dom";
+import logocopy from "../../assets/logocopy.png";
+import logofb from "../../assets/logofb.png";
+import logoig from "../../assets/logoig.png";
+import logott from "../../assets/logott.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -12,8 +12,6 @@ const Footer = () => {
   const navigatePage = (title) => navigate(`/page/${title}`);
 
   const navigateHome = () => navigate("/home");
-
-  const navigateSobrenos = () => navigate("/Sobrenosotros");
 
   return (
     <>
@@ -51,6 +49,20 @@ const Footer = () => {
         </div>
         <div>
           <span className="text-slate-700 font-bold">Tu destino app</span>
+
+          <a
+            onClick={() => navigatePage("Politicas de cancelación")}
+            className="link text-slate-600 link-hover"
+          >
+            Politicas de cancelación
+          </a>
+          <a
+            onClick={() => navigatePage("Politicas de privacidad")}
+            className="link text-slate-600 link-hover"
+          >
+            Politicas de privacidad
+          </a>
+
           <a
             onClick={() => navigatePage("Luchamos contra la discriminación")}
             className="link text-slate-600 link-hover"
@@ -71,19 +83,13 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <span className="text-slate-900 font-bold">Legal</span>
-          <a
-            onClick={() => navigatePage("Politicas de cancelación")}
-            className="link text-slate-600 link-hover"
+          <span className="text-slate-900 font-bold">Sobre Nosotros</span>
+          <Link
+            to={"/nosotros"}
+            className="link text-slate-600 link-hover font-semibold"
           >
-            Politicas de cancelación
-          </a>
-          <a
-            onClick={() => navigatePage("Politicas de privacidad")}
-            className="link text-slate-600 link-hover"
-          >
-            Politicas de privacidad
-          </a>
+            Fundadores
+          </Link>
         </div>
         <div>
           <span className="text-slate-700 font-bold">Comunidad</span>
@@ -113,21 +119,31 @@ const Footer = () => {
           >
             Como brindar servicios de anfitrión de forma responsable
           </a>
-
         </div>
-
       </footer>
       <div className="flex px-10 max-[700px]:flex-col justify-evenly items-center py-6 gap-5">
-        <div onClick={navigateHome} className="w-40 cursor-pointer">
+        <div onClick={navigateHome} className="w-44 cursor-pointer">
           <img src={logo} alt="logo" />{" "}
         </div>
         <div className="flex items-center w-[40%] justify-center">
-         <img className="w-5" src={logocopy} alt="logocopy" />{" "} <span className="text-sm ">2023 TuDestinoapp<span className="max-[700px]:hidden">, todos los derechos reservados.</span></span>
+          <img className="w-5" src={logocopy} alt="logocopy" />{" "}
+          <span className="text-sm ">
+            2023 TuDestinoapp
+            <span className="max-[700px]:hidden">
+              , todos los derechos reservados.
+            </span>
+          </span>
         </div>
         <div className="flex w-36 gap-2">
-         <a href="https://es-la.facebook.com/" target={"_blank"}><img className="w-10" src={logofb} alt="logofb" />{" "}</a>
-         <a href="https://www.instagram.com/" target={"_blank"}><img className="w-10" src={logoig} alt="logoig" />{" "}</a>
-         <a href="https://twitter.com/?lang=es" target={"_blank"}><img className="w-10" src={logott} alt="logott" />{" "}</a>
+          <a href="https://es-la.facebook.com/" target={"_blank"}>
+            <img className="w-10" src={logofb} alt="logofb" />{" "}
+          </a>
+          <a href="https://www.instagram.com/" target={"_blank"}>
+            <img className="w-10" src={logoig} alt="logoig" />{" "}
+          </a>
+          <a href="https://twitter.com/?lang=es" target={"_blank"}>
+            <img className="w-10" src={logott} alt="logott" />{" "}
+          </a>
         </div>
       </div>
     </>
