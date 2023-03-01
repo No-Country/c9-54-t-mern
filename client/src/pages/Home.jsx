@@ -18,40 +18,36 @@ const Home = () => {
 
   const search = useSelector((state) => state.search);
 
+  const URL =
+    "https://tudestinoapp-api-production.up.railway.app/api/products/all/search?searchText=";
+
   useEffect(() => {
     setIsLoading(true);
-    axios
-      .get("https://tudestinoapp-api-production.up.railway.app/api/products")
-      .then((res) => {
-        let result;
 
-        result = res.data.filter((item) => item.isActive === true);
-
+    if (search !== "") {
+      axios.get(`${URL}${search}`).then((resp) => {
         setTimeout(() => {
           setIsLoading(false);
         }, 1700);
-        if (search !== "") {
-          result = res.data
-            .filter((item) => item.isActive === true)
-            .filter(
-              (item) => item.country.toLowerCase() === search.toLowerCase()
-            );
 
-          if (result.length > 0) {
-            setProducts(result);
-            setFilteredProducts(result);
-          } else {
-            setProducts([]);
-            setFilteredProducts([]);
-          }
+        if (resp.data.length > 0) {
+          setProducts(resp.data);
+          setFilteredProducts(resp.data);
         } else {
-          setProducts(result);
-          setFilteredProducts(result);
+          setProducts([]);
+          setFilteredProducts([]);
         }
-      })
-      .catch((err) => {
-        console.log(err);
       });
+    } else {
+      axios.get(`${URL}`).then((resp) => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1700);
+
+        setProducts(resp.data);
+        setFilteredProducts(resp.data);
+      });
+    }
   }, [search]);
 
   const updateFilter = (filter) => {
@@ -70,18 +66,7 @@ const Home = () => {
       }
     }, [filter]);
   
-
-  /*useEffect(() => {
-    axios
-      .get("https://tudestinoapp-production.up.railway.app/api/products")
-      .then((res) => {
-        setProducts(res.data)
-        setFilteredProducts(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    const squeletonArray = [1, 2, 3, 4, 5];
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
