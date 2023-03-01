@@ -4,7 +4,7 @@ import logocopy from "../../assets/logocopy.png";
 import logofb from "../../assets/logofb.png";
 import logoig from "../../assets/logoig.png";
 import logott from "../../assets/logott.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -49,6 +49,20 @@ const Footer = () => {
         </div>
         <div>
           <span className="text-slate-700 font-bold">Tu destino app</span>
+
+          <a
+            onClick={() => navigatePage("Politicas de cancelación")}
+            className="link text-slate-600 link-hover"
+          >
+            Politicas de cancelación
+          </a>
+          <a
+            onClick={() => navigatePage("Politicas de privacidad")}
+            className="link text-slate-600 link-hover"
+          >
+            Politicas de privacidad
+          </a>
+
           <a
             onClick={() => navigatePage("Luchamos contra la discriminación")}
             className="link text-slate-600 link-hover"
@@ -69,19 +83,13 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <span className="text-slate-900 font-bold">Legal</span>
-          <a
-            onClick={() => navigatePage("Politicas de cancelación")}
-            className="link text-slate-600 link-hover"
+          <span className="text-slate-900 font-bold">Sobre Nosotros</span>
+          <Link
+            to={"/nosotros"}
+            className="link text-slate-600 link-hover font-semibold"
           >
-            Politicas de cancelación
-          </a>
-          <a
-            onClick={() => navigatePage("Politicas de privacidad")}
-            className="link text-slate-600 link-hover"
-          >
-            Politicas de privacidad
-          </a>
+            Fundadores
+          </Link>
         </div>
         <div>
           <span className="text-slate-700 font-bold">Comunidad</span>
