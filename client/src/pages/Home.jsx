@@ -58,12 +58,6 @@ const Home = () => {
     setFilter(filter);
 
   };
-  /*const applyFilter = () => {
-    setCardFilter({
-      country: document.getElementById("selectCountry").value,
-      city: document.getElementById("selectCity").value,
-    })
-  }*/
 
   
   useEffect(() => {
@@ -75,36 +69,19 @@ const Home = () => {
         );
       }
     }, [filter]);
-
-   /*useEffect(() => {
-      if ((cardFilter.country === "" && cardFilter.city === "" && filter === "all") || (cardFilter.country === "Pais" && cardFilter.city === "Ciudad" && filter === "all") ) {
-        setFilteredProducts(products);
-      } else if (filter === "all"){
-        setFilteredProducts(
-          products.filter((product) => product.country === cardFilter.country && product.city === cardFilter.city))
-      } else{
-        setFilteredProducts(
-          products.filter((product) => product.country === cardFilter.country && product.city === cardFilter.city && product.productType === filter)
-          );
-        
-      }
-        
-      }, [cardFilter]);*/
   
 
-  useEffect(() => {
+  /*useEffect(() => {
     axios
       .get("https://tudestinoapp-production.up.railway.app/api/products")
       .then((res) => {
-        setProducts(res.data);
+        setProducts(res.data)
         setFilteredProducts(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
-  const squeletonArray = [1, 2, 3, 4, 5];
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
@@ -129,7 +106,7 @@ const Home = () => {
           )}
         </div>
         <div className="container mx-auto relative min-h-[16rem]">
-          {/*<CardsFilter applyFilter={applyFilter}></CardsFilter>*/}
+          <CardsFilter/>
           <ProductContainer>
             {isLoading === false ? (
               <>
