@@ -12,6 +12,9 @@ import { useSelector } from "react-redux";
 import CancelledBooking from "./pages/CancelledBooking";
 import CompletedBooking from "./pages/CompletedBooking";
 import MessageDelete from "./components/perfil/MessageDelete";
+import Nosotros from "./pages/nosotros/Nosotros";
+import Linkedin from "./pages/nosotros/Linkedin";
+import Github from "./pages/nosotros/Github";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -40,6 +43,9 @@ function App() {
           }
         />
         <Route exact path="message" element={<MessageDelete />} />
+        <Route exact path="nosotros" element={<Nosotros />} />
+        <Route exact path="linkedin" element={<Linkedin />} />
+        <Route exact path="github" element={<Github />} />
         <Route exact path="*" element={<Error />} />
       </Routes>
     </>
