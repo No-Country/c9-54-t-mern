@@ -130,7 +130,7 @@ const Footer = () => {
           <span className="text-sm ">
             2023 TuDestinoapp
             <span className="max-[700px]:hidden">
-              , todos los derechos reservados.
+              , Todos los Derechos Reservados.
             </span>
           </span>
         </div>

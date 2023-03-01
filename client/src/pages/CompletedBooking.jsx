@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/dataRange/Loading";
 import Footer from "../components/footer/Footer";
-import NavBar from "../components/navBar/NavBar";
+import NavBar from "../components/navBar/navBar";
 
 const CompletedBooking = () => {
   const navigate = useNavigate();

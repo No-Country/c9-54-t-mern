@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
-import NavBar from "../../components/navBar/NavBar";
+import NavBar from "../../components/navBar/navBar";
 import Linkedin from "./Linkedin";
 import { useState } from "react";
 import Github from "./Github";

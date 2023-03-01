@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "../../components/footer/Footer";
-import NavBar from "../../components/navBar/NavBar";
+//import Footer from "../../components/footer/Footer";
+//import NavBar from "../../components/navBar/NavBar";
 import data from "../../utils/dataFundadores";
 
 const Github = () => {
