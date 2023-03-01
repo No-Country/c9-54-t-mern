@@ -5,7 +5,8 @@ import {
   getProductById,
   getAllProducts,
   getProductType,
-  updateProduct
+  updateProduct,
+  getProductDashboard
 } from "../controllers/product.controller.js";
 import {validateDataUpdateProduct,validateDataCreateProduct} from '../validations/product.validations.js'
 import { verifyUser, verifyAdmin } from "../utils/verifyToken.js"
@@ -19,7 +20,7 @@ router.get("/:id", getProductById);
 router.get("/type/:Type", getProductType);
 router.patch("/:id", verifyAdmin, validateDataUpdateProduct, updateProduct);
 router.delete("/:id", verifyAdmin, deleteProduct);
-
+router.get("/all/dashboard", verifyAdmin, getProductDashboard);
 /* RUTAS PROTEGIDAS
 crear producto solo admin
 router.post("/", verifyAdmin, createProduct);
