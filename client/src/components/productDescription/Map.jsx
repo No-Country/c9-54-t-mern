@@ -66,4 +66,4 @@ const Map = ({ data }) => {
   );
 };
 
-export default localization;
+export default Map;

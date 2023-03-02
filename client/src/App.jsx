@@ -42,10 +42,10 @@ function App() {
             local !== null || user.username !== "" ? <MyProfile /> : <Error />
           }
         />
-        <Route exact path="message" element={<MessageDelete />} />
-        <Route exact path="nosotros" element={<Nosotros />} />
-        <Route exact path="linkedin" element={<Linkedin />} />
-        <Route exact path="github" element={<Github />} />
+        <Route exact path="/message" element={<MessageDelete />} />
+        <Route exact path="/nosotros" element={<Nosotros />} />
+        <Route exact path="/linkedin" element={<Linkedin />} />
+        <Route exact path="/github" element={<Github />} />
         <Route exact path="*" element={<Error />} />
       </Routes>
     </>
