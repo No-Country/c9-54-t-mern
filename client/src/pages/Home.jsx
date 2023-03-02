@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardsFilter from "../components/cardsFilter/CardsFilter";
-import FilterBar from "../components/filterBar/FilterBar";
+import FilterBar from "../components/filterBar/filterBar";
 import Footer from "../components/footer/Footer";
 import Slider from "../components/slider/Slider";
 import ProductContainer from "../components/sliderCard/ProductContainer";
