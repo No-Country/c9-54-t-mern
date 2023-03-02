@@ -3,10 +3,15 @@ import todos from "../../assets/todos.jpg";
 import house from "../../assets/house.jpg";
 import bedroom from "../../assets/bedroom.jpg";
 import apartment from "../../assets/apartment.jpg";
+import filtros from "../../assets/filtros.svg"
 import styles from "./filterBar.module.css";
 
-const filterBar = ({ updateFilter }) => {
+const filterBar = ({ updateFilter, setHandleModal, handleModal }) => {
   const [isActive, setIsActive] = useState("all");
+
+  const modalVisibility = () => {
+    setHandleModal(!handleModal)
+  }
 
   let activeStyle = {
     borderBottom: "2px solid black",
@@ -62,6 +67,11 @@ const filterBar = ({ updateFilter }) => {
           <div className={styles.line} />
         </button>
       </div>
+      <label className={styles.filter} onClick={modalVisibility}>
+        <img src={filtros} alt="Filtros" />
+        <p className="text-slate-900 ">Filtros</p>
+        <div className={styles.line} />
+      </label>
     </div>
   );
 };

@@ -88,7 +88,7 @@ const Footer = () => {
             to={"/nosotros"}
             className="link text-slate-600 link-hover font-semibold"
           >
-            Fundadores
+            Desarrolladores
           </Link>
         </div>
         <div>

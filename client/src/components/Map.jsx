@@ -34,13 +34,9 @@ const Map = ({ data }) => {
   let corY;
 
   for (let i = 0; i < localization.length; i++) {
-    if (data.city.toLowerCase() === localization[i].city) {
+    if (data.city === localization[i].city) {
       corX = localization[i].latitude.x;
       corY = localization[i].latitude.y;
-      break;
-    } else {
-      corX = 8.58972;
-      corY = -71.15611;
     }
   }
 
@@ -66,4 +62,4 @@ const Map = ({ data }) => {
   );
 };
 
-export default localization;
+export default Map;
