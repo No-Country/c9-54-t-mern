@@ -21,6 +21,7 @@ const Github = () => {
                 className="rounded-full mx-auto p-4 w-40 h-40"
               ></img>
             </a>
+            <p className="text-center">Github</p>
           </div>
         ))}
       </div>

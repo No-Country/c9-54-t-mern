@@ -7,9 +7,11 @@ import Github from "./Github";
 
 const Nosotros = () => {
   const [active, setActive] = useState(true);
+  const [buttonActive, setButtonActive] = useState(false);
 
   const linkedin = () => {
     setActive(true);
+    // setButtonActive(false)
   };
 
   const github = () => {
@@ -27,7 +29,14 @@ const Nosotros = () => {
       <section className="container min-h-screen mx-auto grid xl:grid-cols-6 mt-24 sm:grid-cols-1  mb-10">
         <div className="col-span-1 w-full h-full mt-0">
           <div className="mt-6 m-2 sm:mx-auto">
-            <div onClick={linkedin} className=" w-[13.5rem]">
+            <div
+              onClick={linkedin}
+              className={
+                active === true
+                  ? "bg-[#906be7] w-[13.5rem] rounded-lg "
+                  : "w-[13.5rem]"
+              }
+            >
               <h2 className="py-3 uppercase font-bold tracking-[4px] text-center w-full mb-2 hover:bg-[#906be7] hover:text-white rounded-lg transition ease-in-out delay-150 duration-700">
                 <i className="fa-brands fa-linkedin mx-2"></i>
                 Linkedin
@@ -35,7 +44,14 @@ const Nosotros = () => {
             </div>
           </div>
           <div className="mt-6 m-2 sm:mx-auto">
-            <div onClick={github} className=" w-[13.5rem]">
+            <div
+              onClick={github}
+              className={
+                active === false
+                  ? "bg-[#906be7] w-[13.5rem] rounded-lg "
+                  : "w-[13.5rem]"
+              }
+            >
               <h2 className=" py-3 uppercase font-bold tracking-[4px] text-center w-full mb-2 hover:bg-[#906be7] hover:text-white rounded-lg transition ease-in-out delay-150 duration-700">
                 <i className="fa-brands fa-github mx-2"></i>
                 GitHub

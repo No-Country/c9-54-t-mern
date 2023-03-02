@@ -55,56 +55,68 @@ const Home = () => {
 
   const updateFilter = (filter) => {
     setFilter(filter);
-
   };
-
 
   useEffect(() => {
     if (otherFilters?.price != undefined && otherFilters?.price != 50) {
       if (filter != "all") {
         setFilteredProducts(
-          products.filter((product) => product.price <= otherFilters.price && product.productType === filter && product.maxPeople >= otherFilters.numPeople && product.numberBathroom >= otherFilters.numBathrooms && product.numberBedrom >= otherFilters.numBedrooms)
+          products.filter(
+            (product) =>
+              product.price <= otherFilters.price &&
+              product.productType === filter &&
+              product.maxPeople >= otherFilters.numPeople &&
+              product.numberBathroom >= otherFilters.numBathrooms &&
+              product.numberBedrom >= otherFilters.numBedrooms
+          )
         );
-        setClear(false)
+        setClear(false);
       } else {
         setFilteredProducts(
-          products.filter((product) => product.price <= otherFilters.price && product.maxPeople >= otherFilters.numPeople && product.numberBathroom >= otherFilters.numBathrooms && product.numberBedrom >= otherFilters.numBedrooms)
+          products.filter(
+            (product) =>
+              product.price <= otherFilters.price &&
+              product.maxPeople >= otherFilters.numPeople &&
+              product.numberBathroom >= otherFilters.numBathrooms &&
+              product.numberBedrom >= otherFilters.numBedrooms
+          )
         );
-        setClear(false)
+        setClear(false);
       }
-    }
-    else if (filter === "all") {
+    } else if (filter === "all") {
       setFilteredProducts(products);
-
-    }
-    else {
+    } else {
       setFilteredProducts(
         products.filter((product) => product.productType === filter)
-        
       );
-
     }
   }, [filter, otherFilters, clear]);
 
   const clearFilter = () => {
-    setClear(true)
-    setFilteredProducts(products)
+    setClear(true);
+    setFilteredProducts(products);
     setOtherFilters({
       price: 50,
       numPeople: 1,
       numBathrooms: 1,
       numBedrooms: 1,
-    })
-  }
+    });
+  };
 
-  console.log(otherFilters)
   const squeletonArray = [1, 2, 3, 4, 5];
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      {handleModal === true && <div className="flex justify-center items-center bg-[#ebebeb81] w-screen h-screen fixed top-0 bottom-0 right-0 left-0 z-[200]">
-        <CardsFilter setOtherFilters={setOtherFilters} setHandleModal={setHandleModal} handleModal={handleModal} clear={clear}/>
-      </div>}
+      {handleModal === true && (
+        <div className="flex justify-center items-center bg-[#ebebeb81] w-screen h-screen fixed top-0 bottom-0 right-0 left-0 z-[200]">
+          <CardsFilter
+            setOtherFilters={setOtherFilters}
+            setHandleModal={setHandleModal}
+            handleModal={handleModal}
+            clear={clear}
+          />
+        </div>
+      )}
       <div>
         <Slider />
         <div className="sticky top-0 z-10 bg-[#ebebeb] pt-4">
@@ -112,7 +124,11 @@ const Home = () => {
             <NavBar />
           </div>
           <div className="container mx-auto border-b-2 mt-6">
-            <FilterBar updateFilter={updateFilter} setHandleModal={setHandleModal} handleModal={handleModal} />
+            <FilterBar
+              updateFilter={updateFilter}
+              setHandleModal={setHandleModal}
+              handleModal={handleModal}
+            />
           </div>
           {search !== "" && (
             <div className="container mx-auto border-b-2 cursor-default">
@@ -124,18 +140,18 @@ const Home = () => {
               </div>
             </div>
           )}
-          {
-            (clear === false) && <div className="container mx-auto border-b-2 cursor-pointer">
+          {clear === false && (
+            <div className="container mx-auto border-b-2 cursor-pointer">
               <div className="text-ms breadcrumbs mx-10 uppercase hover:text-[#A780ff]">
-                <ul>
+                <ul onClick={clearFilter}>
                   <p className="cursor-pointer font-bold mr-3">
                     <i className="fa-solid fa-circle-xmark text-3xl"></i>
                   </p>
-                  <li onClick={clearFilter}>Borrar filtros</li>
+                  <li>Borrar filtros</li>
                 </ul>
               </div>
             </div>
-          }
+          )}
         </div>
         <div className="container mx-auto relative min-h-[16rem]">
           <ProductContainer>
