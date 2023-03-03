@@ -5,24 +5,24 @@ import {
   getProductById,
   getAllProducts,
   getProductType,
-  updateProduct
+  updateProduct,
+  getProductDashboard,
+  searchProducts
 } from "../controllers/product.controller.js";
-import {validateDataUpdateProduct,validateDataCreateProduct} from '../validations/product.validations.js'
+// import {validateDataUpdateProduct,validateDataCreateProduct} from '../validations/product.validations.js'
+// import { verifyUser, verifyAdmin } from "../utils/verifyToken.js"
 
-
-/* para Ruta Protegida
-import { verifyUser, verifyAdmin } from "../utils/verifyToken.js"
-*/
 
 const router = express.Router();
 
 router.get("/", getAllProducts);
-router.post("/", validateDataCreateProduct,createProduct);
+router.post("/", createProduct);
 router.get("/:id", getProductById);
 router.get("/type/:Type", getProductType);
-router.patch("/:id",validateDataUpdateProduct, updateProduct);
+router.patch("/:id", updateProduct);
 router.delete("/:id", deleteProduct);
-
+router.get("/all/dashboard", getProductDashboard);
+router.get("/all/search", searchProducts);
 /* RUTAS PROTEGIDAS
 crear producto solo admin
 router.post("/", verifyAdmin, createProduct);

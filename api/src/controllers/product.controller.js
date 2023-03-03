@@ -2,7 +2,32 @@ import Product from "../models/product.model.js";
 
 export const getAllProducts = async (req, res) => {
   try {
+    const products = await Product.find({isActive: true});
+    res.status(200).json(products);
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
+export const getProductDashboard = async (req, res) => {
+  try {
     const products = await Product.find();
+    res.status(200).json(products);
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
+export const searchProducts = async (req, res) => {
+  try {
+    const searchText = req.query.searchText;
+    const query = {
+      $or: [
+        { country: { $regex: searchText, $options: 'i' } },
+      { city: { $regex: searchText, $options: 'i' } }
+      ]
+    };
+    const products = await Product.find(query);
     res.status(200).json(products);
   } catch (error) {
     return res.status(400).json({ message: error.message });

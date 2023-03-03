@@ -10,18 +10,18 @@ import {
   getPaymentDate,
   getPaymentLastWeek,
 } from "../controllers/payment.controller.js";
-
+import { verifyUser, verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
-router.get("/",getAllPayment);
-router.post("/",createPayment);
-router.post("/save", savePayment);
-router.get("/:id",getPaymentId);
-router.get("/totalhoy", getPaymentDate);
-router.get("/semanatotal", getPaymentLastWeek);  
-router.get("/reservas/hoy", buscarReservasPorFechaDeHoy)
-router.get("/count/count",getQtyPayment);
-router.get("/sum/totalpayment", getTotalPayment);
+router.get("/",verifyUser, getAllPayment);
+router.post("/",verifyUser, createPayment);
+router.post("/save", verifyUser, savePayment);
+router.get("/:id",verifyUser, getPaymentId);
+router.get("/totalhoy", verifyAdmin, getPaymentDate);
+router.get("/semanatotal", verifyAdmin, getPaymentLastWeek);  
+router.get("/reservas/hoy", verifyAdmin, buscarReservasPorFechaDeHoy)
+router.get("/count/count", verifyAdmin, getQtyPayment);
+router.get("/sum/totalpayment", verifyAdmin, getTotalPayment);
 
 export default router;
 
