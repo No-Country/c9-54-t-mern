@@ -17,12 +17,14 @@ Click [Aqui](https://youtu.be/Z4_4QKyuIkM "Tu Destino App") para ver el video.
   <summary>Tabla de contenidos</summary>
   <ol>
     <li><a href="#introducción">Introducción</a></li>       
-    <li><a href="#diseño">Diseño</a></li>   
-    <li><a href="#prerequisitos">Prerequisitos</a></li>    
-    <li><a href="#librerías-externas">Librerias externas</a></li>
+    <li><a href="#getting-started">Comienzo</a></li>   
+    <li><a href="#frontend">Frontend</a></li>    
+    <li><a href="#backend">Backend</a></li>
     <li><a href="#funcionalidades">Funcionalidades</a></li>
-    <li><a href="#qa-testing">QA Testing</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#developers">Desarrolladores</a></li>
+    <li><a href="#mockups--screenshoots">MOCKUPS</a></li>
+    <li><a href="#technologies">Tecnologias</a></li>
+    <li><a href="#license">Licencia</a></li>
   </ol>
 </details>
 
