@@ -130,6 +130,6 @@ The following tools were used in the construction of the project:
 
 
 ## License
-This project is under the [MIT](./LICENSE) license.
+This project is under the [MIT](https://github.com/No-Country/c9-54-t-mern/blob/main/LICENSE.md) license.
 
                                                                                                              
